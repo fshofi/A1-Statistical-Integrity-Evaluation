@@ -16,11 +16,11 @@ A1 is a compact, AI-assisted evaluation artifact comprising 24 selected statisti
 
 This release does **not** establish representative model accuracy, universal statistical competence, contamination-free execution, psychometric validity, enterprise deployment performance, or superiority to other benchmarks.
 
-## Interactive Plotly companion
+## Live interactive dashboard
 
-The first implementation of the **CVDNA Plotly/Dash Visual Intelligence System v1.1** is included at [`dashboard/index.html`](dashboard/index.html).
+**[Open the A1 Statistical Integrity Evaluation Explorer](https://fshofi.github.io/A1-Statistical-Integrity-Evaluation/)**
 
-It provides a bounded interactive evidence surface for:
+The first implementation of the **CVDNA Plotly/Dash Visual Intelligence System v1.1** provides a bounded interactive evidence surface for:
 
 - the 12 matched contrasts;
 - case-level status and adjudication;
@@ -28,7 +28,7 @@ It provides a bounded interactive evidence surface for:
 - observed defects and retained dissent;
 - visible claim limitations.
 
-The dashboard is a presentation/inspection layer only. It does not reopen or alter the frozen A1 evidence.
+The source presentation is retained at [`dashboard/index.html`](dashboard/index.html). The dashboard is a presentation/inspection layer only. It does not reopen or alter the frozen A1 evidence.
 
 ## Recorded run
 
@@ -59,4 +59,3 @@ Describe A1 as a selected-case evaluation framework and portfolio artifact. Do n
 ## Public-release note
 
 Public-release note: this repository is a publication-safe derivative of the frozen evidence package. Compiled Python caches and local filesystem identifiers were excluded/redacted for privacy and security. The underlying benchmark evidence, statistical results, adjudication, and source logic were not altered. Historical freeze hashes are retained in the provenance record.
-
