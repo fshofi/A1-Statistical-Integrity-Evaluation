@@ -1,5 +1,13 @@
 # A1 Statistical-Integrity Benchmark
 
+<p align="center">
+  <a href="assets/plates/a1-cvdna-atlas-plate.jpg">
+    <img src="assets/plates/a1-cvdna-atlas-plate.jpg" alt="CVDNA Atlas II Technical Plate — A1 Statistical Integrity Evaluation for LLMs" width="100%">
+  </a>
+</p>
+
+<p align="center"><em>CVDNA Atlas II | Technical Plate — A1 Statistical Integrity Evaluation for LLMs</em></p>
+
 ## Publication status
 
 **CONDITIONAL PUBLICATION GO** - bounded portfolio/research artifact, frozen after final adjudication.
