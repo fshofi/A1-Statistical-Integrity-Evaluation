@@ -16,6 +16,20 @@ A1 is a compact, AI-assisted evaluation artifact comprising 24 selected statisti
 
 This release does **not** establish representative model accuracy, universal statistical competence, contamination-free execution, psychometric validity, enterprise deployment performance, or superiority to other benchmarks.
 
+## Interactive Plotly companion
+
+The first implementation of the **CVDNA Plotly/Dash Visual Intelligence System v1.1** is included at [`dashboard/index.html`](dashboard/index.html).
+
+It provides a bounded interactive evidence surface for:
+
+- the 12 matched contrasts;
+- case-level status and adjudication;
+- the separation between parser coverage, independent recomputation, and semantic/statistical review;
+- observed defects and retained dissent;
+- visible claim limitations.
+
+The dashboard is a presentation/inspection layer only. It does not reopen or alter the frozen A1 evidence.
+
 ## Recorded run
 
 - Model alias: OpenAI `gpt-5.6-luna`
@@ -36,6 +50,7 @@ See `RESULTS.md`, `LIMITATIONS.md`, and `evidence/FINAL_ADJUDICATION.md` before 
 - `reviews/abacus/`: attributed independent AI-assisted statistical review
 - `reviews/astra/`: attributed hostile methodological/publication review
 - `evidence/`: evidence chain, hashes, replay results, adjudication, and publication-scope controls
+- `dashboard/`: interactive Plotly companion built from the CVDNA Plotly/Dash Visual Intelligence System v1.1
 
 ## Citation boundary
 
