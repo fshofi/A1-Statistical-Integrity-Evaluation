@@ -20,6 +20,8 @@ This release does **not** establish representative model accuracy, universal sta
 
 **[Open the A1 Statistical Integrity Evaluation Explorer](https://fshofi.github.io/A1-Statistical-Integrity-Evaluation/)**
 
+For a recruiter/client-facing summary of the work, skills, evidence, and claim boundaries, see **[PORTFOLIO.md](PORTFOLIO.md)**.
+
 The first implementation of the **CVDNA Plotly/Dash Visual Intelligence System v1.1** provides a bounded interactive evidence surface for:
 
 - the 12 matched contrasts;
