@@ -1,0 +1,8 @@
+The recommendation is correct for the stated sample and cost function.
+
+- `cost_a`: 20.000000
+- `cost_b`: 10.000000
+- `accuracy_a`: 0.800000
+- `accuracy_b`: 0.900000
+
+Model B has both lower total cost and higher accuracy.

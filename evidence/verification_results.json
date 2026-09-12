@@ -1,0 +1,39 @@
+{
+  "closure_zip": {
+    "crc": "PASS",
+    "entries": 33,
+    "manifest": "PASS",
+    "manifested": 32
+  },
+  "closure_zip_sha256": "55a1dc44ee440bbc0db893667fa396428e1a07ee45ead903bc74b0edfe178c83",
+  "freeze_zip_sha256": "01e7092db82c1d3750ecc88fcb3fb12cc89436ef31584322987f35e878602d75",
+  "frozen_processor_replay": {
+    "byte_identical_to_packaged_outputs": true,
+    "output": "Processed 24 cases; deterministic denominator=0/20 applicable cases",
+    "status": "PASS"
+  },
+  "observed_model_tool_invocations": 0,
+  "original_trace_coverage": "24/24",
+  "run1_prompt_response_hash_binding": "PASS 24/24",
+  "run1_zip": {
+    "crc": "PASS",
+    "entries": 67,
+    "manifest": "PASS",
+    "manifested": 66
+  },
+  "run1_zip_sha256": "5c5aaa3b14e63f22d941f5b140364ed2975fcc0d8161554dc0d8b0a82d78b589",
+  "unique_task_ids": 24,
+  "unique_turn_ids": 24,
+  "unit_tests": {
+    "output": "................................\n----------------------------------------------------------------------\nRan 32 tests in 11.830s\n\nOK",
+    "status": "PASS"
+  },
+  "verify_hashes": {
+    "output": "PASS: frozen bundle and publication manifests verify",
+    "status": "PASS"
+  },
+  "verify_test_inventory": {
+    "output": "PASS: 24 formal H01-H06 unit tests + 8 supplemental integration/artifact/replay checks = 32 discovered test methods",
+    "status": "PASS"
+  }
+}

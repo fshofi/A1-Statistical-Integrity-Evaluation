@@ -1,0 +1,23 @@
+{
+  "cases": {
+    "Q142": {
+      "flag": "PENDING STATISTICAL ADJUDICATION",
+      "raw_response_modified": false
+    },
+    "Q216": {
+      "flag": "PENDING STATISTICAL ADJUDICATION",
+      "raw_response_modified": false
+    },
+    "Q731": {
+      "flag": "PENDING STATISTICAL ADJUDICATION",
+      "raw_response_modified": false
+    },
+    "Q976": {
+      "flag": "PENDING STATISTICAL ADJUDICATION",
+      "raw_response_modified": false
+    }
+  },
+  "note": "Flags were applied only after collection and were not exposed in any case prompt.",
+  "run_id": "a1-run1-post-amendment-gpt-5.6-luna-20260911T030318Z-20260911T211259Z",
+  "status": "PENDING STATISTICAL ADJUDICATION"
+}

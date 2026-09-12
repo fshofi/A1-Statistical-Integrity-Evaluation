@@ -1,0 +1,42 @@
+{
+  "inventory_version": "A1-TEST-INVENTORY-1.1-RECONCILED",
+  "formal_h01_h06_unit_tests": [
+    "test_amendment_h01_h06.H01RequestedVsSupplementalTests.test_policy_covers_all_cases_and_40_requested_values",
+    "test_amendment_h01_h06.H01RequestedVsSupplementalTests.test_q731_requested_fields_only_passes",
+    "test_amendment_h01_h06.H02ToleranceTests.test_exact_value_accepted",
+    "test_amendment_h01_h06.H02ToleranceTests.test_materially_incorrect_nearby_value_rejected",
+    "test_amendment_h01_h06.H02ToleranceTests.test_valid_six_decimal_rounding_accepted",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_canonical_unit",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_duplicate_json_key_rejected",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_duplicate_json_like_key_rejected",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_equivalent_unit",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_incompatible_unit",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_malformed_separate_from_math_failure",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_original_submitted_unit_is_preserved",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_plain_text_number",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_valid_json",
+    "test_amendment_h01_h06.H03ParsingAndUnitTests.test_valid_json_like",
+    "test_amendment_h01_h06.H04ApplicabilityTests.test_empty_nonnumeric_cases_fail_completeness_not_math",
+    "test_amendment_h01_h06.H05ManifestTests.test_missing_field_rejected",
+    "test_amendment_h01_h06.H05ManifestTests.test_null_unexposed_setting_rejected",
+    "test_amendment_h01_h06.H05ManifestTests.test_required_provenance_or_unavailable_marker_validates",
+    "test_amendment_h01_h06.H05ManifestTests.test_vague_unavailable_setting_rejected",
+    "test_amendment_h01_h06.H06SemanticReviewTests.test_bound_review_validates",
+    "test_amendment_h01_h06.H06SemanticReviewTests.test_rationale_and_rubric_required",
+    "test_amendment_h01_h06.H06SemanticReviewTests.test_response_hash_required",
+    "test_amendment_h01_h06.H06SemanticReviewTests.test_reviewer_provenance_required"
+  ],
+  "supplemental_integration_artifact_replay_checks": [
+    "test_amendment_h01_h06.ReplayHardeningTests.test_no_preexisting_output_and_real_checker_writes",
+    "test_amendment_h01_h06.ReplayHardeningTests.test_successful_no_write_checker_fails",
+    "test_cases.CaseTests.test_counts_and_ids",
+    "test_cases.CaseTests.test_public_case_copy_is_exact",
+    "test_checker.CheckerTests.test_frozen_manifest_and_baseline",
+    "test_model_run.ModelRunTests.test_amended_pipeline_and_denominators",
+    "test_reproducibility.ReproducibilityTests.test_hardened_clean_replay",
+    "test_scoring.SummaryTests.test_not_applicable_is_excluded_not_passed"
+  ],
+  "formal_test_count": 24,
+  "supplemental_check_count": 8,
+  "total_discovered_test_methods": 32
+}

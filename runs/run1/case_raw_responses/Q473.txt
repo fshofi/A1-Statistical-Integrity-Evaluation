@@ -1,0 +1,6 @@
+The descriptive claim is false: B has the higher pooled observed completion proportion.
+
+- `a_pooled = 96 / 140 = 0.685714`
+- `b_pooled = 130 / 170 = 0.764706`
+
+Because the assignment was observational, these observations alone do not establish a causal advantage for either method. Differences could reflect confounding or differing difficulty composition.

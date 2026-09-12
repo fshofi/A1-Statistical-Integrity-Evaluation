@@ -1,0 +1,5 @@
+The claim is false.
+
+`fault_given_negative = 0.095238095`
+
+A negative result still leaves approximately 9.52% probability of fault.

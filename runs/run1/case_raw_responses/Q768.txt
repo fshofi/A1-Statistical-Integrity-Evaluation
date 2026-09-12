@@ -1,0 +1,3 @@
+{"cost_a":38,"cost_b":82,"accuracy_a":0.800000,"accuracy_b":0.900000}
+
+The recommendation is incorrect: Model A has the lower total cost (38 vs. 82), although Model B has higher accuracy.

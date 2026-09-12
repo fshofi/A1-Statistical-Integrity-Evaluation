@@ -1,0 +1,3 @@
+The availability claim is false. `carrier_queue_snapshot` is not available at `prediction_time` (`10:00`); it first becomes available at `10:05`. Using its stored historical value during evaluation creates future-information leakage.
+
+Minimal valid repair: exclude `carrier_queue_snapshot` from live and historical evaluation, or delay scoring until `10:05` so the feature is genuinely available.

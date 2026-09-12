@@ -1,0 +1,5 @@
+slope: 0.600000 y-units per x-unit  
+intercept: 2.200000 y-units  
+fitted_value: 7.000000 y-units  
+
+The description is incorrect: x=8 lies outside the observed predictor range [1, 5], so this is extrapolation, not interpolation. The fitted value is the model’s estimated mean response at x=8, not a guaranteed future observation.

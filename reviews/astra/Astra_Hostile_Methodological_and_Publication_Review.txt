@@ -1,0 +1,178 @@
+# A1 Run 1 — hostile methodological and publication review
+
+Review date: 11 September 2026. Input: A1_Run1_Post_Amendment_Full_Evidence_Package(1).zip.
+
+**Final recommendation: CONDITIONAL GO for review and a later bounded descriptive release. This is not approval to publish an accuracy score now.**
+
+Run 1 supplies 24 internally consistent prompt/response records. No corruption or exact full-response substitution from Run 0 was found. However, the source Amendment 1.1, original task rollouts and a verifiable pre-collection freeze record are absent. Therefore the package does not independently establish historical authenticity, technically enforced isolation, or replay of the frozen scoring implementation. These are evidence limits, not proof of misconduct. The four flagged cases need adjudication; Q976 contains a substantive task-constraint error.
+
+## 1. Package integrity
+
+Actual input ZIP SHA-256:
+`5c5aaa3b14e63f22d941f5b140364ed2975fcc0d8161554dc0d8b0a82d78b589`
+
+| Check | Independent result |
+|---|---|
+| ZIP structure and CRC | PASS; 67 files, no duplicate archive paths |
+| SHA256_MANIFEST.txt | All 66 listed files match; manifest itself excluded; no unlisted files |
+| Cases | 24 unique IDs; expected ordered case set; no missing or extra cases |
+| Exact public payload | Canonical reconstruction matches `79b4feb88561c0d3d46ba0f8f660f21bb997383652ea99a70651bfda6907a2ca` |
+| Prompts | All 24 reconstruct exactly from the common template and one public case; files, JSONL, provenance and manifest hashes agree |
+| Responses | All 24 nonempty; per-case file bytes equal the UTF-8 raw-response strings; hashes agree across representations |
+| Raw JSONL | SHA-256 `4fce942cc7cda81e7f8832e951ca9d4fe382a39dfdd91ee3246713e032f3fec3`, matching manifest |
+| Task and turn IDs | 24 unique task IDs and 24 unique turn IDs; task/title mappings consistent; existence not verified against platform histories |
+| Times | Start/end order and response timestamps agree internally; collection spans 03:03:18.175Z–21:12:59.863Z |
+| Scoring copies | Top-level and derived scoring files/summaries byte-identical |
+| Semantic queue | 168 unique case/dimension entries; all bind to correct run and response hash; all unscored |
+| Original inputs | Unchanged by this review |
+
+**Timestamp qualification:** the gap between Q854's completion and Q903's start is 63,892.197 seconds (17h 44m 52.197s). The final three cases belong to a much later collection block. This is disclosed by the times and is not itself invalidation. It matters because the model alias is unpinned: backend stability across both blocks is not established. Local-time rollout filenames are approximately one hour ahead of UTC task times, consistent with a timezone difference, but their naming convention is not attested.
+
+**Amendment 1.1:** the claimed source ZIP hash is `01e7092db82c1d3750ecc88fcb3fb12cc89436ef31584322987f35e878602d75`. The ZIP, scorer, schema and policy files are not included. A separately located file named Freeze_Candidate hashes to `57d741223c56e3584d92413393ca97684a56660a1e52335b353f1ea823b144b4`; it is a different artifact and was not substituted. The claimed source hash is thus recorded, not independently rehashed here. A hash alone cannot establish when a policy was frozen or whether it preceded outcome inspection.
+
+**Run 0:** this reviewer recovered the older package separately. Its actual ZIP hash matches the historical record `42034c88aac5d8cb3e543e95e9f3add23bb976b03ced4fdf363c9cd1576696ee`. None of Run 1's full-response hashes occurs among Run 0's responses. This strengthens the separation evidence beyond the collector's final packaging check. It does not exclude partial reuse or prove the original source of every response. No change was made to the historical separation statement.
+
+**Raw preservation:** consistency between multiple packaged copies is verified. Preservation from original provider/task output to these copies cannot be independently established without those source records. The package contains rollout filenames and extracted metadata, not the rollout files themselves.
+
+## 2. Context isolation and contamination
+
+Classification: **PROCEDURALLY CONTROLLED, as reported; NOT TECHNICALLY ATTESTED.**
+
+The visible prompt supplies a neutral instruction and only the case ID, scenario, data and task. It does not contain reference answers, checker code, scoring policy, prior responses or adjudication flags. The common instruction prohibits tools, browsing, retrieval and consulting other tasks. Distinct task IDs support separate-session organisation.
+
+| Potential access | Evidence boundary |
+|---|---|
+| Frozen references, checker and scoring rules | Absent from visible user prompts; unseen system/developer inputs and workspace injection unverified |
+| Earlier case answers or A1 conversations | Collector reports no inherited turns; original task creation and rollout records absent |
+| Project history and retrieval | Projectless tasks reported; projectless is not proof that all platform context was absent |
+| Memory | Explicitly unavailable/not exposed; background memory injection cannot be excluded |
+| Workspace files | No file content in visible prompts; permissions/mounts and automatic context not attested |
+| Browser and tools | Zero invocations asserted in provenance; no event-level trace supplied to verify those counts |
+| Training contamination | Not measured; public-case provenance does not identify training exposure |
+
+Do not write “the model could not access the answers.” A defensible statement is “the collector supplied one public case per reported fresh projectless task and instructed the model not to use tools; hidden platform context was not exposed.” Even original rollouts could support observed behaviour without proving absence of all hidden injections.
+
+This reviewing conversation has prior A1 involvement and reference exposure. Its work is an adversarial review with independent calculations and file checks, not an institutionally independent or blinded external validation. No current Abacus scoring output was requested or used, and no consensus was sought. A historical amendment report located during source discovery did not supply the missing source and was not used as scoring authority.
+
+## 3. Model and settings reproducibility
+
+Recorded consistently: provider OpenAI; model alias `gpt-5.6-luna`; reasoning `low`; Codex Desktop agent-created projectless tasks; collector CLI `0.153.4`.
+
+Temperature, top_p, maximum output tokens, exact system prompt and exact developer prompt consistently use `UNAVAILABLE / NOT EXPOSED` in the 24 records. The manifest also uses that literal for model version and memory access. **Literal consistency is verified; conformity to the exact frozen Amendment sentinel cannot be certified without its schema.** Do not silently substitute null, zero, defaults, or a different sentinel.
+
+Retry policy is transport/runtime failures only; weak content and refusals must be preserved. Definitive retries, refusals, truncations, timeouts and errors are recorded as zero. These are collector reports, not independently verified finish-reason logs. The package mentions invalidated pilot/corrective tasks but lacks a complete attempt register with exclusion reasons and timestamps. Recover that existing evidence to rule out outcome-based selection; do not collect replacements.
+
+Replay of stored evidence, replay of a scorer and reproduction of model generations are distinct. The first is available; the second needs the exact source; identical regenerated text is not guaranteed by this platform configuration. Hidden instructions and the 18-hour collection window prevent strong exact-runtime reproducibility claims.
+
+## 4. Scoring fairness
+
+The recorded summaries are materially better than the pre-amendment workflow: 20 applicable cases are NOT_EVALUATED; four are NOT_APPLICABLE; none is counted as a mathematical pass or fail. Q731 requires only nominal_lower and nominal_upper; coverage_narrow is explicitly excluded. The recorded required numeric fields total 40. All seven semantic dimensions remain pending.
+
+The parser extracts **zero of 20 applicable cases**, although some contain plainly labelled correct numbers. Q142 gives slope 0.600000, intercept 2.200000 and fitted_value 7.000000. Q216 gives risk_difference 0.200000. Q731 gives the requested nominal bounds. These observations are targeted fairness checks, not replacement semantic scores.
+
+Therefore:
+
+- Correct prose can be left unscored by the parser. This does not imply incorrect mathematics or model refusal.
+- The summary preserves that distinction, but `numeric_value_status=MISSING` and `required_fields_present=FAIL` are misleading if shown without qualification. The values can be present in raw text yet absent only from the parser's derived representation. Do not change these frozen fields; explain their limited meaning in any report.
+- Numeric accuracy is undefined on a zero evaluated denominator. Neither 0% nor 100% is supported. Parser coverage is 0/20 applicable cases; response presence is 24/24. These measure different things.
+- Safe-unit aliases, exact-count handling and six-decimal tolerance cannot be implementation-tested from result files. Every relevant unit comparison is currently NOT_EVALUATED. Recover the exact frozen code/policy before claiming those controls passed this review.
+- Hash binding is present for all 168 review-queue entries, but no completed review or validator is supplied. Test enforcement against wrong-hash reviews only when the actual frozen validator is available.
+- Do not tune extraction rules after seeing these outputs and call that pre-frozen scoring. Abacus may assess the unchanged prose in a separately attributed review under the existing policy. Whether derived manual numeric extraction is already allowed must be checked against Amendment 1.1; do not invent that permission.
+
+## 5. Four-case risk table
+
+| Case | Classification | Finding and unfair-penalty risk |
+|---|---|---|
+| Q142 | REFERENCE RISK | The response has correct requested numbers, explicitly says extrapolation and rejects a guaranteed future observation. “Estimated mean response” is a model-based interpretation, not proof of predictive validity. The earlier frozen prose's stronger claim about increased noise should not become a mandatory requirement. No material model error established in this targeted review. |
+| Q216 | REFERENCE RISK | RD=0.2, study-population causal estimation and uncertainty are distinguished. “Random sampling or assignment variation” names possible sources; random sampling is not itself stipulated, so this wording may merit a qualification but does not negate the stated design-based claim. Do not demand the optional Wald calculation or penalise omission of an unrequested CI. |
+| Q731 | ADJUDICATION REQUIRED | Requested bounds are correctly rounded; pseudoreplication is correctly diagnosed. The wider interval is presented without explicitly conditioning on random selection from the normal population. That assumption is also not explicit in the case, and earlier reference wording shares the ambiguity. Adjudicate the assumption boundary consistently; do not use the reference as automatic proof that the model is wrong or fully right. |
+| Q976 | MODEL ERROR | The response correctly diagnoses future-information leakage and offers dropping the feature, but also offers delaying scoring to 10:05 as a valid repair. That changes the stated 10:00 task. Retain partial credit for the correct diagnosis/valid branch under the frozen rubric; the invalid alternative is a real defect. Refitting the affected pipeline may also be needed. |
+
+The actual Amendment 1.1 frozen reference bytes must be supplied before certifying reference identity. The comparison here uses the public prompts and raw responses, plus the earlier inspected Rev-2 reference history, explicitly not a substitute Amendment source.
+
+Q976 illustrates why answer accuracy alone is insufficient: the diagnosis is correct while one proposed remedy violates the problem's constraint. Do not double-penalise the same defect across overlapping dimensions without a documented rationale. This table is a hostile review, not Abacus's score sheet.
+
+## 6. Matched design
+
+The 12 contrasts are Q142/Q586, Q187/Q639, Q195/Q624, Q216/Q854, Q251/Q694, Q268/Q903, Q317/Q842, Q361/Q795, Q423/Q768, Q459/Q731, Q473/Q928 and Q542/Q976.
+
+Matched interpretation is defensible because each pair shares a scenario/data structure and changes a material condition or claim. The contrasts are heterogeneous: some change data, some a decision rule, some a design and some the proposition being assessed. They are not a uniform randomized intervention or 12 exchangeable experimental replications. No causal effect of a prompt change on a model's internal mechanism is identified.
+
+The 24 selected cases are not independent representative population samples; nor are the 12 pairs established as independent population draws. Report descriptive paired patterns and named failures only. No population confidence interval, universal statistical competence estimate, stable ranking, or cross-model result follows from this single model/run. Repeat generations would measure within-prompt variation, not fix task-selection bias.
+
+## 7. Prior art and originality
+
+StatEval already studies statistical reasoning and, in its July 2026 revision, process-based evaluation beyond final-answer matching: [StatEval v2](https://arxiv.org/abs/2510.09517v2). QRData already studies statistical and causal reasoning with data and different reasoning approaches: [QRData v2](https://arxiv.org/abs/2402.17644v2). Thus the strongest broad novelty claim fails: A1 did not originate statistical LLM evaluation or the idea of assessing reasoning beyond the answer.
+
+A defensible candidate contribution is the particular compact matched-case set, repair-oriented analysis, traceable artifacts, declared parser boundaries and documented adversarial review. The seven-dimension framework is an operational rubric, not a validated psychometric construct or a scientifically novel failure taxonomy merely because it has seven names. “Independent review chain” must disclose each reviewer's model, involvement, evidence access and actual independence.
+
+This is a bounded primary-source prior-art assessment, not exhaustive literature coverage or a case-level plagiarism search. Use “authored/assembled these scenarios and workflow,” subject to authorship provenance, rather than “first,” “unique,” “breakthrough,” or “superior.”
+
+## 8. Publication red team
+
+| Perspective | Strongest criticism | Fatal? | Minimum response | Limitations? |
+|---|---|---|---|---|
+| Senior statistician | Ambiguous sampling assumptions and overlapping semantic penalties | Fatal to unqualified scores, not to a descriptive pilot | Hash-bound adjudication; retain defensible alternatives and disagreement | Yes |
+| AI-evaluation researcher | Hidden platform context and no event-level collection trace | Fatal to technically certified isolation; not to disclosed procedural collection | Supply available original traces; qualify what remains hidden | Yes |
+| ML engineer | Source amendment missing and parser scores no applicable case | Fatal to self-contained scoring-reproduction claims | Attach exact source and reproduce policy processing; label parser coverage separately | Yes |
+| Skeptical recruiter | AI-assisted work presented as independent production/research employment | Fatal to inflated personal claims | Concrete portfolio artifact, contribution disclosure and bounded description | Yes, in disclosure |
+| Journal reviewer | 24 selected prompts, 12 dependent pairs, no validated semantic reliability | Fatal to broad scientific claims | Narrow descriptive scope; named adjudicators and disagreement reporting | Yes |
+| Enterprise client | No evidence of performance on its data or operational environment | Fatal to deployment assurance, not to a discovery conversation | Position as an evaluation prototype; any client validation is a later separate engagement | Yes |
+
+## 9. Recruiter and commercial claims
+
+| Proposed claim | Classification | Safe boundary |
+|---|---|---|
+| “Built a reproducible statistical-integrity benchmark framework for LLM evaluation.” | NEEDS QUALIFICATION | AI-assisted portfolio framework; distinguish earlier demonstrated checker replay from currently unavailable Amendment scorer replay and non-identical model generation. |
+| “Designed a matched-case evaluation protocol with provenance, independent replay, hostile review and controlled scoring.” | NEEDS QUALIFICATION | Name 12 matched contrasts; say separately executed replay and AI-assisted hostile review. Do not imply external scientific independence or fully attested context control. |
+| “Evaluated statistical reasoning beyond final-answer accuracy.” | NEEDS QUALIFICATION | Qualitative review is under way; a targeted review found a diagnosis/repair mismatch, but all 168 formal dimension decisions remain pending. |
+
+**SAFE now:** “Developed an AI-assisted portfolio evaluation framework using 24 statistical-integrity cases arranged as 12 matched contrasts, with hashed prompt/response artifacts and a separate semantic-review workflow.” Personal authorship/contribution should remain supported by the project record.
+
+**SAFE case-study statement now:** “In this recorded response, the model identified temporal leakage but also proposed moving the fixed scoring deadline. The example separates correct diagnosis from a valid repair.” Attach the exact case/response and identify it as a case observation, not a population result.
+
+**NOT SUPPORTED:** scientifically validated benchmark; contamination-free or technically isolated run; exact reproducible model outputs; universal statistical competence; stable leaderboard; superiority to existing benchmarks; externally independent validation without qualification; production ML deployment or professional employment inferred from this portfolio.
+
+## 10. Divergences from Codex
+
+I corroborate internal hashes, 24-case completeness, recorded model consistency, 40 requested quantities, four NOT_APPLICABLE cases, and absence of invented semantic scores. I qualify the collector's broad “PASS” labels:
+
+1. Original source-response authenticity and zero-tool-use counts are not verified from extracted metadata alone.
+2. “Frozen manifest verification PASS” is a collector assertion until the exact Amendment archive is available.
+3. Run 0 can now be freshly rehashed and exact-response overlap checked; this review did so.
+4. The long collection gap and invisible backend version need explicit limitations.
+5. Q976 is a substantive repair error, not merely a generic pending flag.
+6. “MISSING/FAIL” in parser-derived completeness does not mean the model omitted a value visibly present in prose.
+
+These are differences in evidentiary interpretation, not a claim that Codex fabricated the run.
+
+## 11. Abacus investigation list
+
+Review unchanged responses, binding every decision to run ID, case ID and response SHA-256. Do not seek consensus with this report. Investigate:
+
+1. Whether Q976's invalid delay alternative should reduce repair/validity/conclusion credit, while preserving credit for the valid drop-feature branch.
+2. Whether Q731's missing random-draw qualification warrants a penalty under the exact existing rubric, given shared case/reference ambiguity.
+3. Whether Q142 and Q216 are being judged against unrequested or disputable reference extras.
+4. Correct numerical content in prose, without treating parser non-extraction as mathematical error; report any authorized manual extraction separately.
+5. Denominators, unit equivalence, six-decimal tolerance and supplemental exclusion using the actual Amendment policy, not an older repository.
+6. Dimension overlap, rationale, reviewer identity/model, rubric version, response-hash binding and unresolved disagreement. Do not fabricate human adjudication or average away disagreement.
+
+## 12. Release conditions and answers A–F
+
+**A. Suitable for Abacus semantic review?** Yes, as unchanged candidate evidence. Start content review now; final rubric scoring needs the exact governing policy/reference and explicit pending-case handling.
+
+**B. Suitable for bounded public reporting after adjudication?** Conditionally yes. Adjudication alone is insufficient: close the source/replay provenance gap and disclose remaining collection limitations. No replacement responses are required by this review.
+
+**C. Remaining defects?** Missing exact Amendment source and verifiable freeze chronology; missing original rollout/attempt evidence; technical isolation unproved; model build/settings hidden; long collection gap; parser noncoverage and ambiguous completeness labels; four pending case risks; formal semantic scores uncompleted.
+
+**D. Safe claims?** Concrete portfolio implementation, preserved internally consistent artifacts, reported single-model collection, descriptive matched-case observations, and transparently AI-assisted review work.
+
+**E. Prohibited claims?** 0% model accuracy from the empty denominator, universal or representative performance, leaderboard superiority, exact-generation reproducibility, certified contamination-free isolation, scientific validation, or inflated employment/production experience.
+
+**F. Minimum repair before publication?** An additive evidence and reporting closure, not benchmark repair: (i) supply the existing source ZIP matching `01e7092…` and pre-collection freeze evidence; (ii) preserve/export available original task/attempt traces with safe redactions and no secrets; (iii) independently replay the unchanged frozen processor; (iv) complete attributed, response-bound adjudication and semantic review, retaining dissent; (v) publish narrow claims, paired design, parser coverage and all material limitations. If any trace is irrecoverable, state that limitation and narrow the authenticity claim; do not reconstruct it as an original log. Shofi retains final publication approval.
+
+**CONDITIONAL GO — review may proceed; public results remain conditional on these closures.**
+
+## Audit artifacts and reproduction
+
+`verify_run1.py` and `integrity_results.json` contain this review's independent read-only checks. Run `python verify_run1.py RUN1.zip RUN0.zip`; omit the second path if Run 0 is unavailable. This verifies artifact consistency, not hidden context or model generation. The audit outputs are separate from the untouched source packages. The review does not modify references, responses or scoring policy and does not collect replacements.

@@ -1,0 +1,17 @@
+{
+  "browser_access": "Prohibited by the frozen neutral instruction; zero browser invocations observed.",
+  "exact_developer_prompt": "UNAVAILABLE / NOT EXPOSED",
+  "exact_system_prompt": "UNAVAILABLE / NOT EXPOSED",
+  "interface_runtime": "Codex Desktop / agent-created projectless tasks",
+  "maximum_output_tokens": "UNAVAILABLE / NOT EXPOSED",
+  "memory_access": "UNAVAILABLE / NOT EXPOSED",
+  "model_name": "gpt-5.6-luna",
+  "model_version_identifier": "UNAVAILABLE / NOT EXPOSED",
+  "provider": "OpenAI",
+  "reasoning_setting": "low",
+  "retrieval_project_context_access": "No benchmark retrieval or project context supplied; projectless tasks; retrieval prohibited; zero retrieval invocations observed.",
+  "run_id": "a1-run1-post-amendment-gpt-5.6-luna-20260911T030318Z-20260911T211259Z",
+  "temperature": "UNAVAILABLE / NOT EXPOSED",
+  "tool_access": "Platform tools may exist, but the frozen neutral instruction prohibited all tool use; zero model tool invocations observed in all 24 definitive turns.",
+  "top_p": "UNAVAILABLE / NOT EXPOSED"
+}

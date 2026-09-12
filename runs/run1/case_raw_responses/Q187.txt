@@ -1,0 +1,3 @@
+The isolation claim is false. The imputer was fitted using held-out rows, so test-set information leaked into preprocessing and can bias the evaluation.
+
+Smallest valid repair: fit the mean imputer on training rows only, then use that fitted imputer to transform both training and held-out rows. Model fitting may continue to use training labels only.

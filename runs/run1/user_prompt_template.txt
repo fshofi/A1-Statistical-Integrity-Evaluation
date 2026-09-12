@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: {id}
+Scenario: {scenario}
+Data: {data}
+Task: {task}

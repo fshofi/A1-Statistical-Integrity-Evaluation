@@ -1,0 +1,5 @@
+selected_slope: 1.200000 y-units per x-unit  
+selected_intercept: 0.000000 y-units  
+selected_rss: 6.800000 squared y-units  
+
+The minimization claim is false. The freely fitted line has slope 0.400000, intercept 2.800000, and RSS 2.800000, which is lower than 6.800000.

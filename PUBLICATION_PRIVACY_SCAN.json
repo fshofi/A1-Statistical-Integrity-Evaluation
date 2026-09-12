@@ -1,0 +1,57 @@
+{
+  "broken_internal_markdown_links": 0,
+  "cache_or_temporary_artifacts": 0,
+  "functional_checks": [
+    {
+      "name": "test_inventory",
+      "output": "PASS: 24 formal H01-H06 unit tests + 8 supplemental integration/artifact/replay checks = 32 discovered test methods",
+      "status": "PASS"
+    },
+    {
+      "name": "unit_tests",
+      "output": "................................\n----------------------------------------------------------------------\nRan 32 tests in 12.244s\n\nOK",
+      "status": "PASS"
+    },
+    {
+      "byte_identical_rows": true,
+      "byte_identical_summary": true,
+      "name": "run1_frozen_processor_replay",
+      "status": "PASS"
+    },
+    {
+      "name": "embedded_manifest",
+      "output": "PASS: frozen bundle and publication manifests verify",
+      "status": "PASS"
+    },
+    {
+      "name": "embedded_test_inventory",
+      "output": "PASS: 24 formal H01-H06 unit tests + 8 supplemental integration/artifact/replay checks = 32 discovered test methods",
+      "status": "PASS"
+    },
+    {
+      "name": "embedded_unit_tests",
+      "output": "................................\n----------------------------------------------------------------------\nRan 32 tests in 11.679s\n\nOK",
+      "status": "PASS"
+    }
+  ],
+  "license_unchanged": true,
+  "required_github_documents_present": true,
+  "rules": [
+    "local Windows user paths",
+    "local POSIX user paths",
+    "local container paths",
+    "local workspace paths",
+    "known local username",
+    "private keys",
+    "bearer tokens",
+    "API-key patterns",
+    "credential assignments",
+    "email addresses",
+    "environment files",
+    "compiled caches",
+    "hidden OS metadata"
+  ],
+  "scope": "entire derivative, including recursively inspected ZIP members; review PDF previously inspected visually and by text extraction",
+  "sensitive_findings": 0,
+  "status": "PASS"
+}

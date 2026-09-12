@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q473
+Scenario: Synthetic completion counts are A: easy 42/50 and hard 54/90; B: easy 120/150 and hard 10/20. Assignment was observational. An analyst claims A has a higher observed completion proportion than B in the pooled sample.
+Data: {"A_easy":[42,50],"A_hard":[54,90],"B_easy":[120,150],"B_hard":[10,20]}
+Task: Evaluate that descriptive claim. Report a_pooled and b_pooled in proportion units (0 to 1). Discuss whether these observations alone establish a causal advantage. Give noninteger numeric answers to at least six decimal places.

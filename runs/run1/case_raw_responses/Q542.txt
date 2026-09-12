@@ -1,0 +1,3 @@
+The availability claim is valid: `carrier_queue_snapshot` first becomes available at 09:55, before the 10:00 scoring time, and its immutable value can be supplied consistently in both historical evaluation and live scoring.
+
+No material issue is present. Minimal operational repair: explicitly enforce and document a 09:55 availability cutoff in the feature pipeline.

@@ -1,0 +1,164 @@
+==============================================================================
+A1 BLIND STATISTICAL CHECK — REVISION 1 EXECUTION LOG
+(unblinded correction stage; original blind provenance preserved separately)
+==============================================================================
+timestamp_utc          : 2026-09-10T20:13:53.518101+00:00
+python                 : 3.11.6 (CPython)
+platform               : Linux-6.17.0-1015-aws-x86_64-with-glibc2.36
+executable             : /opt/computersetup/.pyenv/versions/3.11.6/bin/python
+original_code_file     : checker_code.py
+original_answers_file  : checker_answers.jsonl
+revision_code_file     : checker_code_rev1.py
+revision_answers_file  : checker_answers_rev1.jsonl
+revision_trigger       : ABACUS_TARGETED_REVISION.txt (SC-01 to SC-07)
+cases_sha256           : 79b4feb88561c0d3d46ba0f8f660f21bb997383652ea99a70651bfda6907a2ca
+manifest_sha256_expected : 79b4feb88561c0d3d46ba0f8f660f21bb997383652ea99a70651bfda6907a2ca
+manifest_sha256_match    : True
+manifest_status          : DRAFT_REFERENCE_CHECK_ONLY
+manifest_contains_answers: False
+case_count    : 24
+
+REVISION DECISIONS SUMMARY
+  SC-01 (Q187, Q976) — ACCEPT : remove directional performance-distortion claims
+  SC-02 (Q976)       — ACCEPT : remove 'delay to 10:05' as a valid repair
+  SC-03 (Q903)       — ACCEPT : remove outcome-driven procedure-selection language
+  SC-04 (Q216, Q854) — ACCEPT : remove superpopulation ATE claim (Q216);
+                                  state Wald SE/CI assumptions explicitly (Q216);
+                                  remove SE from observational uncertainty (Q854)
+  SC-05 (Q731)       — ACCEPT : compute and state coverage of narrow interval
+  SC-06 (Q142)       — ACCEPT : qualify 'no uncertainty statement possible'
+  SC-07 (Q842)       — ACCEPT : say 'lower-FPR paired case'; compute FPR threshold
+
+------------------------------------------------------------------------------
+[Q142] execution_status=EXECUTED
+    slope = 0.6  (y-units per x-unit)
+    intercept = 2.2  (y-units)
+    fitted_value = 7.0  (y-units)
+    conclusion: Numerics correct under OLS (slope 0.6, intercept 2.2, fitted(8) = 7.0), but the analyst's description is wrong: x = 8 is extrapolation beyond the observed predictor range, and the fitted value carries no guarantee about any future observation.
+------------------------------------------------------------------------------
+[Q586] execution_status=EXECUTED
+    slope = 0.6  (y-units per x-unit)
+    intercept = 2.2  (y-units)
+    fitted_value = 4.0  (y-units)
+    conclusion: The interpolation description is correct for x = 3, and the fitted value is 4.0; however the fitted value must still be distinguished from a guaranteed future observation (the observed y at x = 3 was 5, not 4.0).
+------------------------------------------------------------------------------
+[Q361] execution_status=EXECUTED
+    selected_slope = 1.2  (y-units per x-unit)
+    selected_intercept = 0  (y-units)
+    selected_rss = 6.8  (squared y-units)
+    conclusion: The claim is false: the zero-intercept fit (slope 1.2, RSS 6.8) is dominated by the free-intercept OLS fit (slope 0.6, intercept 2.2, RSS 2.4), so it is not the minimizer over all straight lines with a freely chosen intercept.
+------------------------------------------------------------------------------
+[Q795] execution_status=EXECUTED
+    selected_slope = 0.6  (y-units per x-unit)
+    selected_intercept = 2.2  (y-units)
+    selected_rss = 2.4  (squared y-units)
+    conclusion: The claim is correct: the free-intercept least-squares fit (slope 0.6, intercept 2.2, RSS 2.4) is by definition the unique RSS minimizer over the class of all straight lines with a freely chosen intercept.
+------------------------------------------------------------------------------
+[Q195] execution_status=EXECUTED
+    fault_given_negative = 0.005509641873278237  (proportion (0 to 1))
+    conclusion: The claim is supported: P(fault | negative) = 0.005509641873 = 0.550964% < 1%.
+------------------------------------------------------------------------------
+[Q624] execution_status=EXECUTED
+    fault_given_negative = 0.13636363636363635  (proportion (0 to 1))
+    conclusion: The claim is false: with prevalence 0.60, P(fault | negative) = 0.136363636364 = 13.636364%, roughly fourteen times the claimed 1% ceiling.
+------------------------------------------------------------------------------
+[Q317] execution_status=EXECUTED
+    ppv = 0.712166172106825  (proportion (0 to 1))
+    conclusion: The claim is supported: PPV = 0.712166172107 = 71.216617% > 50%, so a positive result is more likely defective than nondefective under these parameters.
+    [Q842 SC-07] PPV=0.5 FPR threshold = Se*prev/(1-prev) = 0.024742268041
+------------------------------------------------------------------------------
+[Q842] execution_status=EXECUTED
+    ppv = 0.19834710743801653  (proportion (0 to 1))
+    conclusion: The claim is false: with false-positive probability 0.10, PPV = 0.198347107438 = 19.834711% < 50%; a positive result is roughly four times as likely to be a false positive as a true defect.
+------------------------------------------------------------------------------
+[Q216] execution_status=EXECUTED
+    risk_difference = 0.2  (proportion (0 to 1))
+    conclusion: The claim is supported as an estimation statement: with random assignment and the stipulated conditions, the unadjusted risk difference 0.2 is a design-justified estimate of the average causal effect in the study population; it is not proof that the true effect is nonzero.
+------------------------------------------------------------------------------
+[Q854] execution_status=EXECUTED
+    risk_difference = 0.2  (proportion (0 to 1))
+    conclusion: The causal-estimation claim is not supported: the unadjusted risk difference 0.2 describes an association under self-selection; without randomization or a stated identification/adjustment strategy it cannot be used as a design-justified estimate of the average causal effect.
+------------------------------------------------------------------------------
+[Q251] execution_status=EXECUTED
+    recall = 0.0  (proportion (0 to 1))
+    predicted_positive_count = 0  (count)
+    conclusion: Correct: with zero predicted positives, precision is 0/0 and therefore undefined under the stated definition and absent convention; recall is 0.0 and the predicted-positive count is 0.
+------------------------------------------------------------------------------
+[Q694] execution_status=EXECUTED
+    recall = 0.0  (proportion (0 to 1))
+    predicted_positive_count = 0  (count)
+    conclusion: Incorrect: precision is undefined (0/0, no predicted positives), not zero; recall is 0.0 and the predicted-positive count is 0.
+------------------------------------------------------------------------------
+[Q268] execution_status=EXECUTED
+    adjusted_p = 0.012  (proportion (0 to 1))
+    conclusion: The proposal is valid: with one hypothesis the Bonferroni-adjusted p-value is 0.012 <= 0.05, so rejecting the null under Bonferroni at familywise alpha 0.05 is correct.
+------------------------------------------------------------------------------
+[Q903] execution_status=EXECUTED
+    adjusted_p = 0.24  (proportion (0 to 1))
+    conclusion: The proposal is invalid: the Bonferroni-adjusted p-value is 0.24 > 0.05, so the null with the smallest p-value cannot be rejected at familywise alpha 0.05 under Bonferroni.
+------------------------------------------------------------------------------
+[Q423] execution_status=EXECUTED
+    cost_a = 20  (cost units)
+    cost_b = 10  (cost units)
+    accuracy_a = 0.8  (proportion (0 to 1))
+    accuracy_b = 0.9  (proportion (0 to 1))
+    conclusion: The recommendation is supported on this sample under the stated cost function: B costs 10 units versus A's 20, and B is also the more accurate model (0.9 vs 0.8).
+------------------------------------------------------------------------------
+[Q768] execution_status=EXECUTED
+    cost_a = 38  (cost units)
+    cost_b = 82  (cost units)
+    accuracy_a = 0.8  (proportion (0 to 1))
+    accuracy_b = 0.9  (proportion (0 to 1))
+    conclusion: The recommendation is incorrect under the stated cost function: B's total cost is 82 units versus A's 38; A is the lower-total-cost model on this sample even though B has higher accuracy (0.9 vs 0.8).
+------------------------------------------------------------------------------
+[Q459] execution_status=EXECUTED
+    nominal_lower = 10.040036015459947  (measurement units)
+    nominal_upper = 13.959963984540053  (measurement units)
+    conclusion: The inference is valid as stated: (10.040036015460, 13.959963984540) is an exactly calibrated 95% confidence interval for the population mean under a normal population with known sigma and 36 independent units.
+    [Q731 SC-05] coverage_narrow = erf(z/(6*sqrt(2))) = erf(0.230983970724946)
+    [Q731 SC-05]                 = 0.256075445069137  (reference: 0.25607544506913693)
+    [Q731 SC-05] coverage_wide   = 2*Phi(z)-1 = erf(z/sqrt(2)) = 0.950000000000000  (= 0.95 by construction)
+------------------------------------------------------------------------------
+[Q731] execution_status=EXECUTED
+    nominal_lower = 10.040036015459947  (measurement units)
+    nominal_upper = 13.959963984540053  (measurement units)
+    coverage_narrow = 0.256075445069137  (proportion (0 to 1))
+    conclusion: The inference is invalid: (10.040036015460, 13.959963984540) treats 36 perfectly correlated repeats as independent draws; with effective n = 1, actual coverage of this narrow interval under the random-draw model is 25.6075%, far below the claimed 95%. The design supports only the much wider interval (0.240216, 23.759784) with 95% coverage, or a redesign with independent units.
+------------------------------------------------------------------------------
+[Q473] execution_status=EXECUTED
+    a_pooled = 0.6857142857142857  (proportion (0 to 1))
+    b_pooled = 0.7647058823529411  (proportion (0 to 1))
+    conclusion: The descriptive claim is false: B's pooled proportion (0.764705882353) exceeds A's (0.685714285714), even though A is higher within each difficulty stratum; and as observational data they establish no causal advantage for either arm.
+------------------------------------------------------------------------------
+[Q928] execution_status=EXECUTED
+    a_pooled = 0.6857142857142857  (proportion (0 to 1))
+    b_pooled = 0.7647058823529411  (proportion (0 to 1))
+    conclusion: The within-group descriptive claim is supported (A higher in both strata: 0.840000000000 > 0.800000000000 and 0.600000000000 > 0.500000000000), but the observations alone do not establish a causal advantage, and the pooled comparison reverses (A 0.685714285714 < B 0.764705882353).
+------------------------------------------------------------------------------
+[Q187] execution_status=ANALYTICAL_ONLY
+    conclusion: The isolation claim is false: the imputer was fitted on all rows including held-out rows, so data-dependent preprocessing is not isolated from test data (train/test leakage through the column means).
+------------------------------------------------------------------------------
+[Q639] execution_status=ANALYTICAL_ONLY
+    conclusion: The isolation claim is supported on the stated facts: imputation and model fitting are confined to training rows, so data-dependent preprocessing is isolated from the held-out data; no material defect is present in the described pipeline.
+------------------------------------------------------------------------------
+[Q542] execution_status=ANALYTICAL_ONLY
+    conclusion: The availability claim is supported: the immutable snapshot is first available at 09:55, five minutes before the 10:00 scoring time, and its stored historical value equals what was knowable then; no look-ahead or availability defect is present.
+------------------------------------------------------------------------------
+[Q976] execution_status=ANALYTICAL_ONLY
+    conclusion: The availability claim is false: the snapshot first becomes available at 10:05, after the 10:00 scoring time, so it cannot be supplied live; the historical evaluation leaks future information through this feature.
+==============================================================================
+wrote checker_answers_rev1.jsonl with 24 answer objects
+checker_answers_rev1_sha256 : b94a752f45e7e7e8ab81145c5581f680cf8eee5a86d46fc440d4d9366e3d29a9
+
+REVISION SUMMARY — changes applied vs. original blind run:
+  Q142  : uncertainty field — 'no uncertainty statement possible' qualified (SC-06)
+  Q187  : derivation — removed 'optimistically biased'; minimum_repair covers full pipeline (SC-01)
+  Q216  : assumptions — removed superpopulation ATE; uncertainty — Wald SE/CI labeled model-based (SC-04)
+  Q731  : coverage_narrow added to numeric dict; coverage computed = 0.256075445069137 (SC-05)
+  Q842  : minimum_repair — 'only at FPR=0.01' replaced with 'lower-FPR paired case' + threshold (SC-07)
+  Q854  : uncertainty — Wald SE removed; confounding-only uncertainty stated (SC-04)
+  Q903  : minimum_repair — outcome-driven procedure-selection language removed (SC-03)
+  Q976  : derivation — removed 'inflating'; minimum_repair — removed 10:05 delay option (SC-01, SC-02)
+  All other cases: unchanged from blind run
+  All 40 original numeric values: preserved exactly
+END OF REVISION LOG

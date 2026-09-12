@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q187
+Scenario: A fixed train/test split is made for new-case prediction. Missing numeric predictors are replaced by column means fitted using all rows, including held-out rows. The fitted imputer then transforms train and test. Model fitting uses training labels only. The analyst claims the held-out evaluation keeps all data-dependent preprocessing fitting isolated from test data.
+Data: {"imputer_fit_scope":"all_rows","model_label_scope":"training_rows","split_before_preprocessing":true}
+Task: Evaluate the isolation claim. Identify any material defect and the smallest valid repair. No numerical result is requested.

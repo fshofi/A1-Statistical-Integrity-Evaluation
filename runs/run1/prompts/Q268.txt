@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q268
+Scenario: An analyst tests 1 prespecified null hypotheses with valid p-values and chooses family-wise alpha 0.05. The smallest observed p-value is 0.012. The analyst proposes using Bonferroni and rejecting the null with that smallest p-value.
+Data: {"familywise_alpha":0.05,"hypotheses":1,"smallest_p":0.012}
+Task: Evaluate the proposed rejection under Bonferroni. Report adjusted_p in proportion units (0 to 1). Give noninteger numeric answers to at least six decimal places.

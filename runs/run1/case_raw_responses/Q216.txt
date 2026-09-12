@@ -1,0 +1,7 @@
+The causal-estimation claim is justified: fair random assignment, complete follow-up, consistent treatment definitions, and no interference support using the unadjusted difference as a design-based estimate of the average causal effect.
+
+- A success risk: \(36/60 = 0.600000\)
+- B success risk: \(24/60 = 0.400000\)
+- `risk_difference`: **0.200000**
+
+This estimates a 20-percentage-point causal effect of A versus B in the study population. However, the observed difference alone does not prove that the true causal effect is nonzero; random sampling or assignment variation could produce a nonzero observed difference even if the underlying effect were zero.

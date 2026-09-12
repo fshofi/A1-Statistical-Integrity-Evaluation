@@ -1,0 +1,5 @@
+selected_slope: 0.600000 y-units per x-unit  
+selected_intercept: 2.200000 y-units  
+selected_rss: 2.400000 squared y-units  
+
+The minimization claim is true: with a freely chosen intercept, ordinary least squares provides the global minimum residual sum of squares over all straight lines.

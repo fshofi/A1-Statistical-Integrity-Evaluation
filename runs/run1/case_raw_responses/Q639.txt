@@ -1,0 +1,5 @@
+The isolation claim is valid. The imputer is fitted only on training rows, then applied to both sets; the model uses training labels only; and the split occurs before preprocessing.
+
+Material defect: none.
+
+Smallest valid repair: no repair required.

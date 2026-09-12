@@ -1,0 +1,13 @@
+{
+  "artifact": "PROJECT A PRO - A1",
+  "disposition": "CONDITIONAL PUBLICATION GO",
+  "freeze_timestamp_utc": "2026-09-11T23:19:02.882356Z",
+  "frozen_processor_replay": "PASS - byte-identical derived outputs",
+  "no_further_a1_repair_needed": true,
+  "no_further_model_collection_needed": true,
+  "original_trace_coverage": "24/24 - privately retained closure archive",
+  "reasoning": "low",
+  "reopen_policy": "Do not reopen A1 unless a genuine defect is later discovered.",
+  "run1_case_count": 24,
+  "run1_model": "OpenAI gpt-5.6-luna"
+}

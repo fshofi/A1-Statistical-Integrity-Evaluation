@@ -1,0 +1,5 @@
+slope: 0.600000 y-units per x-unit  
+intercept: 2.200000 y-units  
+fitted_value: 4.000000 y-units  
+
+Evaluating at x=3 is interpolation because 3 lies within the observed predictor range [1, 5]. However, the fitted value is the regression model’s estimated response at x=3—not a guaranteed future observation.

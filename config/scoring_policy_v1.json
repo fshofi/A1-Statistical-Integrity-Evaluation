@@ -1,0 +1,53 @@
+{
+  "policy_version": "A1-SCORING-1.1-H01-H04",
+  "frozen_before_model_scoring": true,
+  "numeric_acceptance": {
+    "rounded_decimal_6": {
+      "kind": "rounded_decimal",
+      "decimal_places": 6,
+      "absolute_tolerance": 0.0000005,
+      "relative_tolerance": 0.0,
+      "boundary_rule": "absolute_error <= 0.5 * 10^-decimal_places"
+    },
+    "exact_integer": {
+      "kind": "exact_integer",
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0
+    }
+  },
+  "unit_definitions": {
+    "proportion": {"canonical": "proportion (0 to 1)", "aliases": ["proportion", "probability", "fraction", "unitless", "0 to 1"]},
+    "count": {"canonical": "count", "aliases": ["counts", "number"]},
+    "y_units_per_x_unit": {"canonical": "y-units per x-unit", "aliases": ["y units per x unit", "y-unit/x-unit"]},
+    "y_units": {"canonical": "y-units", "aliases": ["y units", "y-unit"]},
+    "squared_y_units": {"canonical": "squared y-units", "aliases": ["y-units squared", "squared y units", "y^2 units"]},
+    "cost_units": {"canonical": "cost units", "aliases": ["cost unit"]},
+    "measurement_units": {"canonical": "measurement units", "aliases": ["measurement unit"]}
+  },
+  "cases": {
+    "Q142": {"required_numeric_fields": ["slope", "intercept", "fitted_value"], "supplemental_numeric_fields": [], "fields": {"slope": {"unit": "y_units_per_x_unit", "acceptance": "rounded_decimal_6"}, "intercept": {"unit": "y_units", "acceptance": "rounded_decimal_6"}, "fitted_value": {"unit": "y_units", "acceptance": "rounded_decimal_6"}}},
+    "Q187": {"required_numeric_fields": [], "supplemental_numeric_fields": [], "fields": {}},
+    "Q195": {"required_numeric_fields": ["fault_given_negative"], "supplemental_numeric_fields": [], "fields": {"fault_given_negative": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q216": {"required_numeric_fields": ["risk_difference"], "supplemental_numeric_fields": [], "fields": {"risk_difference": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q251": {"required_numeric_fields": ["recall", "predicted_positive_count"], "supplemental_numeric_fields": [], "fields": {"recall": {"unit": "proportion", "acceptance": "rounded_decimal_6"}, "predicted_positive_count": {"unit": "count", "acceptance": "exact_integer"}}},
+    "Q268": {"required_numeric_fields": ["adjusted_p"], "supplemental_numeric_fields": [], "fields": {"adjusted_p": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q317": {"required_numeric_fields": ["ppv"], "supplemental_numeric_fields": [], "fields": {"ppv": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q361": {"required_numeric_fields": ["selected_slope", "selected_intercept", "selected_rss"], "supplemental_numeric_fields": [], "fields": {"selected_slope": {"unit": "y_units_per_x_unit", "acceptance": "rounded_decimal_6"}, "selected_intercept": {"unit": "y_units", "acceptance": "rounded_decimal_6"}, "selected_rss": {"unit": "squared_y_units", "acceptance": "rounded_decimal_6"}}},
+    "Q423": {"required_numeric_fields": ["cost_a", "cost_b", "accuracy_a", "accuracy_b"], "supplemental_numeric_fields": [], "fields": {"cost_a": {"unit": "cost_units", "acceptance": "exact_integer"}, "cost_b": {"unit": "cost_units", "acceptance": "exact_integer"}, "accuracy_a": {"unit": "proportion", "acceptance": "rounded_decimal_6"}, "accuracy_b": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q459": {"required_numeric_fields": ["nominal_lower", "nominal_upper"], "supplemental_numeric_fields": [], "fields": {"nominal_lower": {"unit": "measurement_units", "acceptance": "rounded_decimal_6"}, "nominal_upper": {"unit": "measurement_units", "acceptance": "rounded_decimal_6"}}},
+    "Q473": {"required_numeric_fields": ["a_pooled", "b_pooled"], "supplemental_numeric_fields": [], "fields": {"a_pooled": {"unit": "proportion", "acceptance": "rounded_decimal_6"}, "b_pooled": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q542": {"required_numeric_fields": [], "supplemental_numeric_fields": [], "fields": {}},
+    "Q586": {"required_numeric_fields": ["slope", "intercept", "fitted_value"], "supplemental_numeric_fields": [], "fields": {"slope": {"unit": "y_units_per_x_unit", "acceptance": "rounded_decimal_6"}, "intercept": {"unit": "y_units", "acceptance": "rounded_decimal_6"}, "fitted_value": {"unit": "y_units", "acceptance": "rounded_decimal_6"}}},
+    "Q624": {"required_numeric_fields": ["fault_given_negative"], "supplemental_numeric_fields": [], "fields": {"fault_given_negative": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q639": {"required_numeric_fields": [], "supplemental_numeric_fields": [], "fields": {}},
+    "Q694": {"required_numeric_fields": ["recall", "predicted_positive_count"], "supplemental_numeric_fields": [], "fields": {"recall": {"unit": "proportion", "acceptance": "rounded_decimal_6"}, "predicted_positive_count": {"unit": "count", "acceptance": "exact_integer"}}},
+    "Q731": {"required_numeric_fields": ["nominal_lower", "nominal_upper"], "supplemental_numeric_fields": ["coverage_narrow"], "fields": {"nominal_lower": {"unit": "measurement_units", "acceptance": "rounded_decimal_6"}, "nominal_upper": {"unit": "measurement_units", "acceptance": "rounded_decimal_6"}, "coverage_narrow": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q768": {"required_numeric_fields": ["cost_a", "cost_b", "accuracy_a", "accuracy_b"], "supplemental_numeric_fields": [], "fields": {"cost_a": {"unit": "cost_units", "acceptance": "exact_integer"}, "cost_b": {"unit": "cost_units", "acceptance": "exact_integer"}, "accuracy_a": {"unit": "proportion", "acceptance": "rounded_decimal_6"}, "accuracy_b": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q795": {"required_numeric_fields": ["selected_slope", "selected_intercept", "selected_rss"], "supplemental_numeric_fields": [], "fields": {"selected_slope": {"unit": "y_units_per_x_unit", "acceptance": "rounded_decimal_6"}, "selected_intercept": {"unit": "y_units", "acceptance": "rounded_decimal_6"}, "selected_rss": {"unit": "squared_y_units", "acceptance": "rounded_decimal_6"}}},
+    "Q842": {"required_numeric_fields": ["ppv"], "supplemental_numeric_fields": [], "fields": {"ppv": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q854": {"required_numeric_fields": ["risk_difference"], "supplemental_numeric_fields": [], "fields": {"risk_difference": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q903": {"required_numeric_fields": ["adjusted_p"], "supplemental_numeric_fields": [], "fields": {"adjusted_p": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q928": {"required_numeric_fields": ["a_pooled", "b_pooled"], "supplemental_numeric_fields": [], "fields": {"a_pooled": {"unit": "proportion", "acceptance": "rounded_decimal_6"}, "b_pooled": {"unit": "proportion", "acceptance": "rounded_decimal_6"}}},
+    "Q976": {"required_numeric_fields": [], "supplemental_numeric_fields": [], "fields": {}}
+  }
+}

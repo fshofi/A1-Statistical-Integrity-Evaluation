@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q694
+Scenario: A binary classifier is evaluated on 200 labeled items, 30 positive and 170 negative. It predicts every item negative. Precision is defined as TP/(TP+FP), with no software zero-division convention adopted. An analyst reports that positive-class precision is zero.
+Data: {"fn":30,"fp":0,"precision_definition":"TP/(TP+FP)","tn":170,"tp":0,"zero_division_policy":null}
+Task: Evaluate the precision statement. Report recall in proportion units and predicted_positive_count in count units. Explain precision in words rather than forcing a numeric value for it. Give noninteger numeric answers to at least six decimal places.

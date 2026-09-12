@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q142
+Scenario: Fit ordinary least squares with an intercept to x=[1, 2, 3, 4, 5], y=[2, 4, 5, 4, 5]. An analyst evaluates the fitted line at x=8 and describes that fitted value as interpolation within the observed predictor range.
+Data: {"target_x":8,"x":[1,2,3,4,5],"y":[2,4,5,4,5]}
+Task: Report slope in y-units per x-unit, intercept in y-units, and fitted_value in y-units. Evaluate the interpolation description and distinguish a fitted value from a guaranteed future observation. Give noninteger numeric answers to at least six decimal places.

@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q624
+Scenario: A synthetic fault screen has exact sensitivity 0.90, specificity 0.95 and fault prevalence 0.60. A randomly selected unit tests negative. The analyst claims its probability of a fault is below 1%.
+Data: {"prevalence":0.6,"sensitivity":0.9,"specificity":0.95}
+Task: Evaluate the claim. Report numeric key fault_given_negative in proportion units (0 to 1). Give noninteger numeric answers to at least six decimal places.

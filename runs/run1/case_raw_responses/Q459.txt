@@ -1,0 +1,6 @@
+The inference is valid for the stated sampling design because the population standard deviation is known and the 36 measurements are independent.
+
+- `nominal_lower`: 10.040036015460
+- `nominal_upper`: 13.959963984540
+
+No correction is required. The interval is the exact 95% normal-theory confidence interval for the population mean under the stated assumptions.

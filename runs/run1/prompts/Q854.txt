@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q854
+Scenario: A synthetic study assigns intervention A or B by participants choosing their preferred intervention. Outcomes are binary success: A 36/60, B 24/60. Complete follow-up, consistent treatment definitions and no interference are stipulated. The analyst claims the unadjusted difference can be used as a design-justified estimate of the average causal effect in the study population.
+Data: {"a_n":60,"a_success":36,"assignment":"participant_choice","b_n":60,"b_success":24}
+Task: Evaluate the causal-estimation claim. Report risk_difference as A minus B in proportion units (0 to 1 for these counts). Distinguish estimation from proof of a nonzero effect. Give noninteger numeric answers to at least six decimal places.

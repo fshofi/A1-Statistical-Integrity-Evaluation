@@ -1,0 +1,17 @@
+The claim is correct.
+
+\[
+\text{PPV}=P(\text{defective}\mid +)
+=\frac{P(+\mid D)P(D)}
+{P(+\mid D)P(D)+P(+\mid \neg D)P(\neg D)}
+\]
+
+\[
+\text{PPV}
+=\frac{0.80\times0.03}
+{(0.80\times0.03)+(0.01\times0.97)}
+=\frac{0.024}{0.0337}
+=\mathbf{0.712166}
+\]
+
+Thus, a positive result has approximately a **71.2166%** probability of indicating a defective item, versus **28.7834%** for a nondefective item.

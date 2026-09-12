@@ -1,0 +1,7 @@
+Under Bonferroni:
+
+- adjusted_p: **0.240000**
+- Bonferroni threshold: **0.002500**
+- Reject: **No**
+
+The proposed rejection is not supported because 0.012 > 0.0025.

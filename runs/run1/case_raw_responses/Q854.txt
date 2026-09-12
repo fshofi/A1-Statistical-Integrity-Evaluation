@@ -1,0 +1,11 @@
+The claim is not justified. Because participants chose their intervention, assignment was nonrandom and may be confounded by preferences or baseline characteristics. Complete follow-up and consistent treatment definitions do not establish exchangeability, so the unadjusted difference is an observational association, not a design-justified estimate of the average causal effect.
+
+```json
+{
+  "risk_difference": 0.200000,
+  "A_risk": 0.600000,
+  "B_risk": 0.400000
+}
+```
+
+This difference estimates a causal effect only under additional assumptions such as no unmeasured confounding. It does not prove that the causal effect is nonzero.

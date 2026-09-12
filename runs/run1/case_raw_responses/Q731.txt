@@ -1,0 +1,17 @@
+The stated formula gives:
+
+```text
+nominal_lower: 10.040036
+nominal_upper: 13.959964
+```
+
+However, the interval is not valid for this sampling design because the 36 measurements are perfectly correlated repeats from one production unit. The effective sample size is therefore 1, not 36.
+
+Using the effective sample size:
+
+```text
+corrected_lower: 0.240216
+corrected_upper: 23.759784
+```
+
+This uses \(12 \pm 1.959963984540054 \times 6\). The correction reflects the absence of independent replication across production units.

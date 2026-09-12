@@ -1,0 +1,488 @@
+{
+  "browser_access": "Prohibited by the frozen neutral instruction; zero browser invocations observed.",
+  "case_execution_order": [
+    "Q142",
+    "Q187",
+    "Q195",
+    "Q216",
+    "Q251",
+    "Q268",
+    "Q317",
+    "Q361",
+    "Q423",
+    "Q459",
+    "Q473",
+    "Q542",
+    "Q586",
+    "Q624",
+    "Q639",
+    "Q694",
+    "Q731",
+    "Q768",
+    "Q795",
+    "Q842",
+    "Q854",
+    "Q903",
+    "Q928",
+    "Q976"
+  ],
+  "case_set_sha256": "79b4feb88561c0d3d46ba0f8f660f21bb997383652ea99a70651bfda6907a2ca",
+  "collector_software_version": "Codex Desktop CLI 0.153.4",
+  "context_isolation_method": "One fresh, independent, agent-created projectless Codex task per case; only the frozen neutral instruction and that case's public ID/scenario/data/task were supplied as benchmark input; no prior-case turns inherited.",
+  "definitive_task_ids": {
+    "Q142": "01a08e6b-61dd-7eb1-b68e-cac0b6ac5020",
+    "Q187": "01a08e6b-7508-79e0-9bda-13ed987f167c",
+    "Q195": "01a08e6b-8d2c-7c10-8b0e-6751614dfde1",
+    "Q216": "01a08e6b-9e85-7753-95bf-3f773cabada8",
+    "Q251": "01a08e6b-b0ee-7471-b3b7-366770bbfc47",
+    "Q268": "01a08e6b-ccf4-75c3-b634-797b8ed62aee",
+    "Q317": "01a08e6b-df5d-73a3-a6ab-725d816b0104",
+    "Q361": "01a08e6b-eec9-79c0-9d3b-f4367e465d12",
+    "Q423": "01a08e6c-187e-7da1-865d-e776f6093694",
+    "Q459": "01a08e6c-29bb-7841-b659-279d4e23cacc",
+    "Q473": "01a08e6c-3b03-7780-859c-4f86df31a03d",
+    "Q542": "01a08e6c-6bd6-79b0-a84d-38a7429a82bf",
+    "Q586": "01a08e6c-8f57-7440-a13c-e9e8f535f359",
+    "Q624": "01a08e6d-0b4f-7203-94f8-22ee358d116a",
+    "Q639": "01a08e6d-2820-7c30-b9f0-b45ef65f0136",
+    "Q694": "01a08e6d-4ad7-7e93-a67e-19928c11b4d3",
+    "Q731": "01a08e6d-81e2-7ac1-a313-67a44cf84a00",
+    "Q768": "01a08e6d-b161-7a30-8999-6de27800f390",
+    "Q795": "01a08e6d-cc13-7333-8bbb-72a841d0e818",
+    "Q842": "01a08e6d-e0f6-7501-aed7-f821a4b9e237",
+    "Q854": "01a08e6d-f5a9-7703-887d-f5c46a298d38",
+    "Q903": "01a09250-cd17-7052-9de4-d3d13c62189b",
+    "Q928": "01a09250-dd97-7022-8149-596d396140b5",
+    "Q976": "01a09250-ee07-7a43-9069-65eefcf42c4f"
+  },
+  "exact_case_payload": [
+    {
+      "data": {
+        "target_x": 8,
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "y": [
+          2,
+          4,
+          5,
+          4,
+          5
+        ]
+      },
+      "id": "Q142",
+      "scenario": "Fit ordinary least squares with an intercept to x=[1, 2, 3, 4, 5], y=[2, 4, 5, 4, 5]. An analyst evaluates the fitted line at x=8 and describes that fitted value as interpolation within the observed predictor range.",
+      "task": "Report slope in y-units per x-unit, intercept in y-units, and fitted_value in y-units. Evaluate the interpolation description and distinguish a fitted value from a guaranteed future observation. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "imputer_fit_scope": "all_rows",
+        "model_label_scope": "training_rows",
+        "split_before_preprocessing": true
+      },
+      "id": "Q187",
+      "scenario": "A fixed train/test split is made for new-case prediction. Missing numeric predictors are replaced by column means fitted using all rows, including held-out rows. The fitted imputer then transforms train and test. Model fitting uses training labels only. The analyst claims the held-out evaluation keeps all data-dependent preprocessing fitting isolated from test data.",
+      "task": "Evaluate the isolation claim. Identify any material defect and the smallest valid repair. No numerical result is requested."
+    },
+    {
+      "data": {
+        "prevalence": 0.05,
+        "sensitivity": 0.9,
+        "specificity": 0.95
+      },
+      "id": "Q195",
+      "scenario": "A synthetic fault screen has exact sensitivity 0.90, specificity 0.95 and fault prevalence 0.05. A randomly selected unit tests negative. The analyst claims its probability of a fault is below 1%.",
+      "task": "Evaluate the claim. Report numeric key fault_given_negative in proportion units (0 to 1). Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "a_n": 60,
+        "a_success": 36,
+        "assignment": "random_assignment",
+        "b_n": 60,
+        "b_success": 24
+      },
+      "id": "Q216",
+      "scenario": "A synthetic study assigns intervention A or B by a fair random allocation. Outcomes are binary success: A 36/60, B 24/60. Complete follow-up, consistent treatment definitions and no interference are stipulated. The analyst claims the unadjusted difference can be used as a design-justified estimate of the average causal effect in the study population.",
+      "task": "Evaluate the causal-estimation claim. Report risk_difference as A minus B in proportion units (0 to 1 for these counts). Distinguish estimation from proof of a nonzero effect. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "fn": 30,
+        "fp": 0,
+        "precision_definition": "TP/(TP+FP)",
+        "tn": 170,
+        "tp": 0,
+        "zero_division_policy": null
+      },
+      "id": "Q251",
+      "scenario": "A binary classifier is evaluated on 200 labeled items, 30 positive and 170 negative. It predicts every item negative. Precision is defined as TP/(TP+FP), with no software zero-division convention adopted. An analyst reports that positive-class precision is undefined.",
+      "task": "Evaluate the precision statement. Report recall in proportion units and predicted_positive_count in count units. Explain precision in words rather than forcing a numeric value for it. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "familywise_alpha": 0.05,
+        "hypotheses": 1,
+        "smallest_p": 0.012
+      },
+      "id": "Q268",
+      "scenario": "An analyst tests 1 prespecified null hypotheses with valid p-values and chooses family-wise alpha 0.05. The smallest observed p-value is 0.012. The analyst proposes using Bonferroni and rejecting the null with that smallest p-value.",
+      "task": "Evaluate the proposed rejection under Bonferroni. Report adjusted_p in proportion units (0 to 1). Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "false_positive_probability": 0.01,
+        "prevalence": 0.03,
+        "sensitivity": 0.8
+      },
+      "id": "Q317",
+      "scenario": "A synthetic quality screen has defect prevalence 0.03, sensitivity 0.80 and false-positive probability 0.01. These are exact population parameters. An analyst claims that a randomly drawn item with a positive result is more likely defective than nondefective.",
+      "task": "Evaluate the claim. Report numeric key ppv in proportion units (0 to 1), with the conditioning and calculation. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "free_intercept": false,
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "y": [
+          2,
+          4,
+          5,
+          4,
+          5
+        ]
+      },
+      "id": "Q361",
+      "scenario": "For x=[1, 2, 3, 4, 5], y=[2, 4, 5, 4, 5], an analyst fits least squares with the intercept constrained to zero. They claim this selected fit also minimizes residual sum of squares over all straight lines with a freely chosen intercept.",
+      "task": "Report selected_slope in y-units per x-unit, selected_intercept in y-units, and selected_rss in squared y-units. Evaluate the minimization claim. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "A": {
+          "fn": 2,
+          "fp": 18,
+          "tn": 62,
+          "tp": 18
+        },
+        "B": {
+          "fn": 8,
+          "fp": 2,
+          "tn": 78,
+          "tp": 12
+        },
+        "false_negative_cost": 1,
+        "false_positive_cost": 1
+      },
+      "id": "Q423",
+      "scenario": "On the same 100 labeled cases, model A has TP=18, FP=18, FN=2, TN=62. Model B has TP=12, FP=2, FN=8, TN=78. Each false positive costs 1 unit and each false negative costs 1 units; correct predictions cost zero. The analyst recommends B as the lower-total-cost model on this sample.",
+      "task": "Evaluate that recommendation for the stated sample and cost function. Report cost_a and cost_b in cost units, and accuracy_a and accuracy_b in proportion units. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "mean": 12,
+        "n_records": 36,
+        "population_sigma": 6,
+        "sampling_design": "independent_units"
+      },
+      "id": "Q459",
+      "scenario": "A synthetic normal population of unit values has known standard deviation 6. The recorded mean is 12 from 36 independently sampled production units, each measured once. An analyst uses 12 ± 1.959963984540054 × 6/√36 and calls it a 95% confidence interval for the population mean.",
+      "task": "Evaluate the inference. Report nominal_lower and nominal_upper in measurement units for the stated formula, even if that formula is not valid for this sampling design. Explain any required correction. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "A_easy": [
+          42,
+          50
+        ],
+        "A_hard": [
+          54,
+          90
+        ],
+        "B_easy": [
+          120,
+          150
+        ],
+        "B_hard": [
+          10,
+          20
+        ]
+      },
+      "id": "Q473",
+      "scenario": "Synthetic completion counts are A: easy 42/50 and hard 54/90; B: easy 120/150 and hard 10/20. Assignment was observational. An analyst claims A has a higher observed completion proportion than B in the pooled sample.",
+      "task": "Evaluate that descriptive claim. Report a_pooled and b_pooled in proportion units (0 to 1). Discuss whether these observations alone establish a causal advantage. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "prediction_time": "10:00",
+        "snapshot_first_available": "09:55",
+        "snapshot_immutable": true
+      },
+      "id": "Q542",
+      "scenario": "A model must score an order at 10:00. All predictors except carrier_queue_snapshot are available by then. That snapshot is immutable and first becomes available at 09:55. Historical evaluation uses its stored value for every order. The analyst claims every evaluation feature could also be supplied to the model at the required live scoring time.",
+      "task": "Evaluate the availability claim. Identify any material issue and a minimal operationally valid repair. No numerical result is requested."
+    },
+    {
+      "data": {
+        "target_x": 3,
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "y": [
+          2,
+          4,
+          5,
+          4,
+          5
+        ]
+      },
+      "id": "Q586",
+      "scenario": "Fit ordinary least squares with an intercept to x=[1, 2, 3, 4, 5], y=[2, 4, 5, 4, 5]. An analyst evaluates the fitted line at x=3 and describes that fitted value as interpolation within the observed predictor range.",
+      "task": "Report slope in y-units per x-unit, intercept in y-units, and fitted_value in y-units. Evaluate the interpolation description and distinguish a fitted value from a guaranteed future observation. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "prevalence": 0.6,
+        "sensitivity": 0.9,
+        "specificity": 0.95
+      },
+      "id": "Q624",
+      "scenario": "A synthetic fault screen has exact sensitivity 0.90, specificity 0.95 and fault prevalence 0.60. A randomly selected unit tests negative. The analyst claims its probability of a fault is below 1%.",
+      "task": "Evaluate the claim. Report numeric key fault_given_negative in proportion units (0 to 1). Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "imputer_fit_scope": "training_rows",
+        "model_label_scope": "training_rows",
+        "split_before_preprocessing": true
+      },
+      "id": "Q639",
+      "scenario": "A fixed train/test split is made for new-case prediction. Missing numeric predictors are replaced by column means fitted using training rows only. The fitted imputer then transforms train and test. Model fitting uses training labels only. The analyst claims the held-out evaluation keeps all data-dependent preprocessing fitting isolated from test data.",
+      "task": "Evaluate the isolation claim. Identify any material defect and the smallest valid repair. No numerical result is requested."
+    },
+    {
+      "data": {
+        "fn": 30,
+        "fp": 0,
+        "precision_definition": "TP/(TP+FP)",
+        "tn": 170,
+        "tp": 0,
+        "zero_division_policy": null
+      },
+      "id": "Q694",
+      "scenario": "A binary classifier is evaluated on 200 labeled items, 30 positive and 170 negative. It predicts every item negative. Precision is defined as TP/(TP+FP), with no software zero-division convention adopted. An analyst reports that positive-class precision is zero.",
+      "task": "Evaluate the precision statement. Report recall in proportion units and predicted_positive_count in count units. Explain precision in words rather than forcing a numeric value for it. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "mean": 12,
+        "n_records": 36,
+        "population_sigma": 6,
+        "sampling_design": "one_unit_repeated"
+      },
+      "id": "Q731",
+      "scenario": "A synthetic normal population of unit values has known standard deviation 6. The recorded mean is 12 from one sampled production unit measured 36 times, with perfectly correlated repeats. An analyst uses 12 ± 1.959963984540054 × 6/√36 and calls it a 95% confidence interval for the population mean.",
+      "task": "Evaluate the inference. Report nominal_lower and nominal_upper in measurement units for the stated formula, even if that formula is not valid for this sampling design. Explain any required correction. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "A": {
+          "fn": 2,
+          "fp": 18,
+          "tn": 62,
+          "tp": 18
+        },
+        "B": {
+          "fn": 8,
+          "fp": 2,
+          "tn": 78,
+          "tp": 12
+        },
+        "false_negative_cost": 10,
+        "false_positive_cost": 1
+      },
+      "id": "Q768",
+      "scenario": "On the same 100 labeled cases, model A has TP=18, FP=18, FN=2, TN=62. Model B has TP=12, FP=2, FN=8, TN=78. Each false positive costs 1 unit and each false negative costs 10 units; correct predictions cost zero. The analyst recommends B as the lower-total-cost model on this sample.",
+      "task": "Evaluate that recommendation for the stated sample and cost function. Report cost_a and cost_b in cost units, and accuracy_a and accuracy_b in proportion units. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "free_intercept": true,
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "y": [
+          2,
+          4,
+          5,
+          4,
+          5
+        ]
+      },
+      "id": "Q795",
+      "scenario": "For x=[1, 2, 3, 4, 5], y=[2, 4, 5, 4, 5], an analyst fits least squares with a free intercept. They claim this selected fit also minimizes residual sum of squares over all straight lines with a freely chosen intercept.",
+      "task": "Report selected_slope in y-units per x-unit, selected_intercept in y-units, and selected_rss in squared y-units. Evaluate the minimization claim. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "false_positive_probability": 0.1,
+        "prevalence": 0.03,
+        "sensitivity": 0.8
+      },
+      "id": "Q842",
+      "scenario": "A synthetic quality screen has defect prevalence 0.03, sensitivity 0.80 and false-positive probability 0.10. These are exact population parameters. An analyst claims that a randomly drawn item with a positive result is more likely defective than nondefective.",
+      "task": "Evaluate the claim. Report numeric key ppv in proportion units (0 to 1), with the conditioning and calculation. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "a_n": 60,
+        "a_success": 36,
+        "assignment": "participant_choice",
+        "b_n": 60,
+        "b_success": 24
+      },
+      "id": "Q854",
+      "scenario": "A synthetic study assigns intervention A or B by participants choosing their preferred intervention. Outcomes are binary success: A 36/60, B 24/60. Complete follow-up, consistent treatment definitions and no interference are stipulated. The analyst claims the unadjusted difference can be used as a design-justified estimate of the average causal effect in the study population.",
+      "task": "Evaluate the causal-estimation claim. Report risk_difference as A minus B in proportion units (0 to 1 for these counts). Distinguish estimation from proof of a nonzero effect. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "familywise_alpha": 0.05,
+        "hypotheses": 20,
+        "smallest_p": 0.012
+      },
+      "id": "Q903",
+      "scenario": "An analyst tests 20 prespecified null hypotheses with valid p-values and chooses family-wise alpha 0.05. The smallest observed p-value is 0.012. The analyst proposes using Bonferroni and rejecting the null with that smallest p-value.",
+      "task": "Evaluate the proposed rejection under Bonferroni. Report adjusted_p in proportion units (0 to 1). Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "A_easy": [
+          42,
+          50
+        ],
+        "A_hard": [
+          54,
+          90
+        ],
+        "B_easy": [
+          120,
+          150
+        ],
+        "B_hard": [
+          10,
+          20
+        ]
+      },
+      "id": "Q928",
+      "scenario": "Synthetic completion counts are A: easy 42/50 and hard 54/90; B: easy 120/150 and hard 10/20. Assignment was observational. An analyst claims A has a higher observed completion proportion than B within each difficulty group.",
+      "task": "Evaluate that descriptive claim. Report a_pooled and b_pooled in proportion units (0 to 1). Discuss whether these observations alone establish a causal advantage. Give noninteger numeric answers to at least six decimal places."
+    },
+    {
+      "data": {
+        "prediction_time": "10:00",
+        "snapshot_first_available": "10:05",
+        "snapshot_immutable": true
+      },
+      "id": "Q976",
+      "scenario": "A model must score an order at 10:00. All predictors except carrier_queue_snapshot are available by then. That snapshot is immutable and first becomes available at 10:05. Historical evaluation uses its stored value for every order. The analyst claims every evaluation feature could also be supplied to the model at the required live scoring time.",
+      "task": "Evaluate the availability claim. Identify any material issue and a minimal operationally valid repair. No numerical result is requested."
+    }
+  ],
+  "exact_developer_prompt": "UNAVAILABLE / NOT EXPOSED",
+  "exact_system_prompt": "UNAVAILABLE / NOT EXPOSED",
+  "exact_user_prompt_template": "You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.\n\nPublic case ID: {id}\nScenario: {scenario}\nData: {data}\nTask: {task}",
+  "historical_run0_hash_verification_status": "HISTORICAL METADATA ONLY — RUN 0 PACKAGE FILE UNAVAILABLE FOR FRESH REHASH",
+  "historical_run0_package_sha256_record": "42034c88aac5d8cb3e543e95e9f3add23bb976b03ced4fdf363c9cd1576696ee",
+  "interface_runtime": "Codex Desktop / agent-created projectless tasks",
+  "maximum_output_tokens": "UNAVAILABLE / NOT EXPOSED",
+  "memory_access": "UNAVAILABLE / NOT EXPOSED",
+  "model_name": "gpt-5.6-luna",
+  "model_provider_errors": [],
+  "model_version_identifier": "UNAVAILABLE / NOT EXPOSED",
+  "prompt_sha256_by_case": {
+    "Q142": "141b9e78c2535833fac36c1ea0e833e665f981d62ac13f65586cbfb735ba69d7",
+    "Q187": "b9e07c3408684c30ca61cc1f6657cb6735d443242bb6c95ed053bfbbe1cfebdc",
+    "Q195": "2b754d4afb6b09f5c40f79536ded633aa314a3d85236d2af2707fef3be14977d",
+    "Q216": "f097ff157c9776725a20fe0c9c4f0d7208e1928b4bd65fe91daade4d226de65c",
+    "Q251": "6a9a06f86219273b1877d89054431efe44e480929391673dd75f6993ed82ae57",
+    "Q268": "42970df938e4323381550a938738263af1876251b0650b76e97f790f45d4e169",
+    "Q317": "374238cf04c4ffea8074cde20599aee22405dd2e6eba4277b7a3574462a2224c",
+    "Q361": "6dee8a1d271956c7ba7352af9f9429323996009d43cb3e38395ca30c45b143b3",
+    "Q423": "510f1102f2a6001a3f2baa0eddf5d68386e81fa9b7229b0d7b7ebfaf3ab29706",
+    "Q459": "8dfc2f785137d24560b77baf308a3c5ed0c906debfc15e893084cf617d8e7b3a",
+    "Q473": "ec835500e7f61d302b89c12be928a65afd6a1262e706d16d7623c74b017add65",
+    "Q542": "d209c81e1e992e04ecb69e1416ef8f184a0225896b37bb32d9a7891268cafc00",
+    "Q586": "6a0a4830bf61ce238858e33af83ca3b0a0b10f47e1ace1c27710c7e31cc51286",
+    "Q624": "5c57adec2d41388981b1791f41680a9ae185df60e7d070f38f7996e7bf663a4a",
+    "Q639": "8527036ce2bcac38c26056d7aaca1e55555fd36fcf185893e71edac3b31ce2f8",
+    "Q694": "bef456d52a51a80e97cc09d749cbe3a523cba1fb5751c052de8eb0b93b742064",
+    "Q731": "1c7abbfa2738e5cc3f6513ebf8c86314acb7b5e7b3eaaadf5e47e684e4bab31c",
+    "Q768": "db532de0df51b9e650d75d7794ccd51f72f168fc1e4f820181b04f7f6808add6",
+    "Q795": "307a6fa65356808cc897648acca61c064a599511d52f56a2efd11e583b892be8",
+    "Q842": "5d9f9c2f06ae9df498e37914ca3b06df0fe29d4ac8aa976205e5eeb85fe1d758",
+    "Q854": "8d6ea22be2dd364be440596965ae165d46ef732f3825b24fbb5f155951e65332",
+    "Q903": "2924aca10d29f4ff374cff1f2131d7e9f4c99db0394c9d6d3568aa6a14f4b3bc",
+    "Q928": "a22f0b04ed380982738446ddbca1727d02d54f896b40a73c16e1bfe79d6f6694",
+    "Q976": "e830832239cea279d605dcdba43d6982f6e95c6504a222759fa8d5b5482d7c87"
+  },
+  "provider": "OpenAI",
+  "raw_response_sha256": "4fce942cc7cda81e7f8832e951ca9d4fe382a39dfdd91ee3246713e032f3fec3",
+  "reasoning_setting": "low",
+  "refusal_handling": "Record refusal verbatim without content-based retry; no definitive refusal occurred.",
+  "response_sha256_by_case": {
+    "Q142": "092fbf6b997fa3df822eec1db6b3ed3d80cec95bb0ec5ae355bbf348adf2300b",
+    "Q187": "3a14093788b51d176d0f58b45c03e88f2a29a78705a85930ef9c828390777168",
+    "Q195": "cd6b9c87fd385b4339b8ff796201e04aec401c51671952ce7dc408889c86a4f6",
+    "Q216": "691db58db55b30e4e81219bf7ca43a008e347187bff6fa51da358900429fcc3f",
+    "Q251": "594f8a18c8ef2c19802faba108e6151548e62dafc1685afee017f4aef8feb989",
+    "Q268": "e71e1303cc222ca558dcbe8eb66f2c6234cea553d39516afea3bcec2ce53827c",
+    "Q317": "0dd165b9b7167663ac752b26d682038e6fbbb0ca04f9f37d6f041078370c6998",
+    "Q361": "2b50ad76a965345d82ac65fab881ed90619d62930ce09d1df125f1b22456df1a",
+    "Q423": "31afa61c2e7a146ecef332afe78f697892f30c88e90986077dc1afa61cff20de",
+    "Q459": "e93aaae52edae0bcccf739a0576ba60546dfcedeeaac89ef150c3bf9062f7a62",
+    "Q473": "6eae1e983157d3db3423f15609a328d28e553a8299b4544792fb6a9ef06351ce",
+    "Q542": "559175a9d7d2fe59b0694f4746b75792853d3e6a506ea8eb7435da692e532e63",
+    "Q586": "48b1c53734bc0d676988b9e33a948758a3a319e8f1e31d4284945962c2f457c1",
+    "Q624": "8c734c80e72c455f7e89fa715a5e693acd1fd9c4fe3496c2009d3dec5215e688",
+    "Q639": "7d6c05e270b0062cc2494525fb713e1b1a4d7d702c599e7a86003e9b0d69ead8",
+    "Q694": "78a14e1d0f243dfca2fb0f3c1bcec75b5074e0735fa44ba29054522bd49ee962",
+    "Q731": "fab28eccf07aa0f884f2f4c03dea5bd05338bbef9283c1ef42575ebde388e53d",
+    "Q768": "db23b79b3df95c0adce400ec2fe8aeea63c427428e63c02c7ad946099a557335",
+    "Q795": "a89c0dbd632df12015c49cf30e10b4e3b68e3eea5abfe9f1e29c7bbc79b5a936",
+    "Q842": "3bb7f84631c223bb8641dfafc5cabcf8ea2d03d370f31151566ef57888fd7ae8",
+    "Q854": "a3c5357e47a673441d02fa6b1b9b0f0dd9a155ebc0f1832fef6dfb2a86a97647",
+    "Q903": "cf73a850599dc4070a9802f4defd3b998e675c4b56f034082c2006e6d9f22c27",
+    "Q928": "58e0c5c0afcc0f18cecc6fa26ad9a2c7be4b0918d9da517e767cfc38bf6c8d9d",
+    "Q976": "f22398405dbc57e07619f3fabf2b1c4f89ceaea829c463f7b3b62b6d5fd31bdb"
+  },
+  "retrieval_project_context_access": "No benchmark retrieval or project context supplied; projectless tasks; retrieval prohibited; zero retrieval invocations observed.",
+  "retry_policy": "One definitive attempt per case; retry only for transport/runtime failure; no definitive retries occurred.",
+  "run0_separation": "RUN 0 = PRE-AMENDMENT COLLECTION — SEPARATE",
+  "run_id": "a1-run1-post-amendment-gpt-5.6-luna-20260911T030318Z-20260911T211259Z",
+  "schema_version": "A1-RUN-MANIFEST-1.1",
+  "source_repository_sha256": "01e7092db82c1d3750ecc88fcb3fb12cc89436ef31584322987f35e878602d75",
+  "temperature": "UNAVAILABLE / NOT EXPOSED",
+  "timeout_handling": "Record and preserve any timeout; no definitive timeout occurred.",
+  "tool_access": "Platform tools may exist, but the frozen neutral instruction prohibited all tool use; zero model tool invocations observed in all 24 definitive turns.",
+  "top_p": "UNAVAILABLE / NOT EXPOSED",
+  "truncation_handling": "Record and preserve truncation without silent replacement; no definitive truncation occurred.",
+  "utc_end_time": "2026-09-11T21:12:59.863Z",
+  "utc_start_time": "2026-09-11T03:03:18.175Z"
+}

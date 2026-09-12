@@ -1,0 +1,9 @@
+A1 POST-AMENDMENT DEFINITIVE RUN 1 — RETRY / REFUSAL / TRUNCATION LOG
+run_id=a1-run1-post-amendment-gpt-5.6-luna-20260911T030318Z-20260911T211259Z
+definitive_case_count=24
+definitive_retries=0
+definitive_refusals=0
+definitive_truncations=0
+definitive_timeouts=0
+model_provider_errors=0
+note=Earlier pilot and corrective tasks were invalidated before this definitive collection and are not included or substituted.

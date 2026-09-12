@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/a1/semantic_review.schema.json",
+  "title": "A1 response-bound semantic review decision",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "run_id", "case_id", "raw_response_sha256", "reviewer_identity", "reviewer_role", "reviewer_system_model", "review_timestamp", "rubric_version", "dimension", "score", "rationale", "confidence", "adjudication_status"],
+  "properties": {
+    "schema_version": {"const": "A1-SEMANTIC-REVIEW-1.1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "pattern": "^Q[0-9]+$"},
+    "raw_response_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "reviewer_identity": {"type": "string", "minLength": 1},
+    "reviewer_role": {"type": "string", "minLength": 1},
+    "reviewer_system_model": {"type": "string", "minLength": 1},
+    "review_timestamp": {"type": "string", "format": "date-time"},
+    "rubric_version": {"type": "string", "minLength": 1},
+    "dimension": {"enum": ["evidence", "assumptions", "method", "reasoning", "uncertainty", "validity", "conclusion"]},
+    "score": {"type": "integer", "enum": [0, 1, 2]},
+    "rationale": {"type": "string", "minLength": 1},
+    "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "adjudication_status": {"enum": ["UNADJUDICATED", "AGREED", "DISAGREEMENT_UNRESOLVED", "ADJUDICATED", "SUPERSEDED"]}
+  }
+}

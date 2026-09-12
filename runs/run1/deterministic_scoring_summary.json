@@ -1,0 +1,19 @@
+{
+  "case_count": 24,
+  "disagreement_policy": "Represent separately; no silent averaging or forced consensus.",
+  "leaderboard_eligible": false,
+  "leaderboard_note": "No leaderboard: non-applicable items are excluded and missing/unparsed items are not counted as passes.",
+  "numeric_applicable_case_count": 20,
+  "numeric_correctness_denominator": 0,
+  "numeric_coverage_denominator": 20,
+  "numeric_evaluated_case_count": 0,
+  "numeric_non_applicable_case_count": 4,
+  "numeric_pass_count": 0,
+  "numeric_unevaluated_applicable_count": 20,
+  "response_completeness_denominator": 24,
+  "response_present_count": 24,
+  "semantic_review_decision_count": 0,
+  "semantic_review_status": "RUBRIC_HUMAN_REVIEW_REQUIRED",
+  "semantic_reviewed_decision_count": 0,
+  "semantic_reviews_aggregated": false
+}

@@ -1,0 +1,4 @@
+The precision statement is not valid: positive-class precision is undefined because TP + FP = 0, yielding 0/0. It should not be reported as zero without an explicit zero-division convention.
+
+- recall: `0.000000`
+- predicted_positive_count: `0`

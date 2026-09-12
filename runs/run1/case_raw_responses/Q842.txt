@@ -1,0 +1,17 @@
+The claim is false.
+
+Conditioning on a positive result:
+
+\[
+P(\text{defective}\mid +)
+=\frac{P(+\mid\text{defective})P(\text{defective})}
+{P(+\mid\text{defective})P(\text{defective})+P(+\mid\text{nondefective})P(\text{nondefective})}
+\]
+
+\[
+\text{ppv}=\frac{0.80(0.03)}{0.80(0.03)+0.10(0.97)}
+=\frac{0.024}{0.121}
+=0.198347
+\]
+
+Thus, a positive item has a **19.834711%** probability of being defective and an **80.165289%** probability of being nondefective.

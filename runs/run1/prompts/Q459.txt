@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q459
+Scenario: A synthetic normal population of unit values has known standard deviation 6. The recorded mean is 12 from 36 independently sampled production units, each measured once. An analyst uses 12 ± 1.959963984540054 × 6/√36 and calls it a 95% confidence interval for the population mean.
+Data: {"mean":12,"n_records":36,"population_sigma":6,"sampling_design":"independent_units"}
+Task: Evaluate the inference. Report nominal_lower and nominal_upper in measurement units for the stated formula, even if that formula is not valid for this sampling design. Explain any required correction. Give noninteger numeric answers to at least six decimal places.

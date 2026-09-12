@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q976
+Scenario: A model must score an order at 10:00. All predictors except carrier_queue_snapshot are available by then. That snapshot is immutable and first becomes available at 10:05. Historical evaluation uses its stored value for every order. The analyst claims every evaluation feature could also be supplied to the model at the required live scoring time.
+Data: {"prediction_time":"10:00","snapshot_first_available":"10:05","snapshot_immutable":true}
+Task: Evaluate the availability claim. Identify any material issue and a minimal operationally valid repair. No numerical result is requested.

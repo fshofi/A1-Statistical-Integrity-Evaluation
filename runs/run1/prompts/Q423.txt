@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q423
+Scenario: On the same 100 labeled cases, model A has TP=18, FP=18, FN=2, TN=62. Model B has TP=12, FP=2, FN=8, TN=78. Each false positive costs 1 unit and each false negative costs 1 units; correct predictions cost zero. The analyst recommends B as the lower-total-cost model on this sample.
+Data: {"A":{"fn":2,"fp":18,"tn":62,"tp":18},"B":{"fn":8,"fp":2,"tn":78,"tp":12},"false_negative_cost":1,"false_positive_cost":1}
+Task: Evaluate that recommendation for the stated sample and cost function. Report cost_a and cost_b in cost units, and accuracy_a and accuracy_b in proportion units. Give noninteger numeric answers to at least six decimal places.

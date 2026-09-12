@@ -1,0 +1,6 @@
+You are already in the required fresh independent context. Answer directly without calling any tool, creating or consulting another task, browsing, retrieving files, or asking for approval. Use only the supplied public case. Give a self-contained answer and preserve the requested field names for numerical outputs.
+
+Public case ID: Q795
+Scenario: For x=[1, 2, 3, 4, 5], y=[2, 4, 5, 4, 5], an analyst fits least squares with a free intercept. They claim this selected fit also minimizes residual sum of squares over all straight lines with a freely chosen intercept.
+Data: {"free_intercept":true,"x":[1,2,3,4,5],"y":[2,4,5,4,5]}
+Task: Report selected_slope in y-units per x-unit, selected_intercept in y-units, and selected_rss in squared y-units. Evaluate the minimization claim. Give noninteger numeric answers to at least six decimal places.

@@ -1,0 +1,6 @@
+The precision statement is correct: positive-class precision is undefined because \(TP+FP=0\), so the denominator is zero.
+
+- `recall`: 0.000000
+- `predicted_positive_count`: 0
+
+Precision should be described as undefined, not assigned a numeric value.

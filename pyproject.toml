@@ -1,0 +1,12 @@
+[project]
+name = "a1-statistical-integrity-benchmark"
+version = "1.1.1"
+description = "A reproducible statistical-integrity benchmark framework for language models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Shofi Ahmed Uddin"}]
+dependencies = []
+
+[tool.setuptools]
+py-modules = []

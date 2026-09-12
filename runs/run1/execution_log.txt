@@ -1,0 +1,19 @@
+A1 POST-AMENDMENT DEFINITIVE RUN 1 — EXECUTION LOG
+run_id=a1-run1-post-amendment-gpt-5.6-luna-20260911T030318Z-20260911T211259Z
+utc_start_time=2026-09-11T03:03:18.175Z
+utc_end_time=2026-09-11T21:12:59.863Z
+provider=OpenAI
+model=gpt-5.6-luna
+reasoning_setting=low
+context_isolation=fresh independent agent-created projectless task per case
+source_freeze_zip_sha256=01e7092db82c1d3750ecc88fcb3fb12cc89436ef31584322987f35e878602d75
+frozen_manifest_verification=PASS
+definitive_cases=24/24
+unique_task_ids=24
+exact_task_titles=PASS
+raw_prompt_integrity=PASS
+raw_response_integrity=PASS
+run0_separation=PASS
+deterministic_processor=Processed 24 cases; deterministic denominator=0/20 applicable cases
+semantic_review=UNRESOLVED
+final_disposition=CONDITIONAL PASS

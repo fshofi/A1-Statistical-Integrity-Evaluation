@@ -1,0 +1,11 @@
+The claim is false.
+
+\[
+\text{fault\_given\_negative}
+=\frac{(1-0.90)(0.60)}
+{(1-0.90)(0.60)+(0.95)(1-0.60)}
+=\frac{0.06}{0.44}
+=0.136363636
+\]
+
+So the probability of a fault is approximately 13.636%, well above 1%.

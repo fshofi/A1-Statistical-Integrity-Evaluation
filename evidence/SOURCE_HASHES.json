@@ -1,0 +1,20 @@
+{
+  "hash_algorithm": "SHA-256",
+  "notes": {
+    "evidence_closure_zip": "Verified privately; excluded from public archive because raw rollout logs contain unnecessary platform-internal metadata.",
+    "model_cases_rerun": false,
+    "original_files_modified": false
+  },
+  "publication_disposition": "CONDITIONAL PUBLICATION GO",
+  "sources": {
+    "abacus_review_pdf": "02868ea56fabb6f228956a9100795d73f4854616224ce8c8b5eeb5011849f472",
+    "amendment_1_1_freeze_zip": "01e7092db82c1d3750ecc88fcb3fb12cc89436ef31584322987f35e878602d75",
+    "astra_review_txt": "9c68be64df0f2b54f1962d5db8ddf85d3cd65630630412e24355d3e6deaf1eab",
+    "blind_answers": "b9c55dbf0386050f70f05ae0dea0370b9c1b71ff193af6f881bcee5fc48ca31c",
+    "case_set": "79b4feb88561c0d3d46ba0f8f660f21bb997383652ea99a70651bfda6907a2ca",
+    "evidence_closure_zip": "55a1dc44ee440bbc0db893667fa396428e1a07ee45ead903bc74b0edfe178c83",
+    "rev1_answers": "b94a752f45e7e7e8ab81145c5581f680cf8eee5a86d46fc440d4d9366e3d29a9",
+    "rev2_answers": "fa5af07dde36625f21b64a776f4e11b78eb7f19859105adff6d2a2875ad921f7",
+    "run1_evidence_zip": "5c5aaa3b14e63f22d941f5b140364ed2975fcc0d8161554dc0d8b0a82d78b589"
+  }
+}

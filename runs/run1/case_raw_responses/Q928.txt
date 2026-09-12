@@ -1,0 +1,11 @@
+Within each difficulty group, A has the higher observed completion proportion:
+
+- Easy: A = 42/50 = 0.840000; B = 120/150 = 0.800000
+- Hard: A = 54/90 = 0.600000; B = 10/20 = 0.500000
+
+Pooled proportions:
+
+- `a_pooled = 96/140 = 0.685714`
+- `b_pooled = 130/170 = 0.764706`
+
+Thus, the descriptive within-group claim is supported, although B has the higher pooled proportion because the group composition differs. Since assignment was observational, these observations alone do not establish a causal advantage for A; confounding or selection effects could explain the differences.
