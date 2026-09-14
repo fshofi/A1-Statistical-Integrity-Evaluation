@@ -25,5 +25,17 @@ class ReproducibilityTests(unittest.TestCase):
         self.assertIn("generated_file_exists=True", run.stdout)
         self.assertIn("semantic_records_identical=True", run.stdout)
 
+    def test_external_challenge_hardening_replays(self):
+        run = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "run_v1_2_hardening.py")],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            encoding="utf-8",
+            timeout=60,
+        )
+        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+        self.assertIn('"overall": "CONDITIONAL_PASS"', run.stdout)
+
 
 if __name__ == "__main__": unittest.main()
