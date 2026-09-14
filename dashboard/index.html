@@ -79,8 +79,14 @@
     if(hasR&&hasRef){ const scale=Math.max(Math.abs(ref),1e-12), err=Math.abs(rv-ref)/scale, tol=Number($('tolerance').value); if(err<=tol){addCheck('Numeric agreement: PASS',`Relative error ${(err*100).toFixed(3)}% is within the ${(tol*100)}% tolerance.`,'good')}else{addCheck('Numeric agreement: FAIL',`Reported ${rv} differs from reference ${ref}; relative error ${(err*100).toFixed(2)}%.`,'bad');severe++;}}
     else {addCheck('Numeric agreement: NOT TESTED','Provide both reported and reference values for a deterministic numeric comparison.','warn');warnings++;}
     const all=(q+' '+a+' '+e).toLowerCase();
-    const causal=/\b(cause|caused|causes|causal|because of|led to)\b/.test(a.toLowerCase()); const design=/random|experiment|instrument|difference-in-differences|regression discontinuity|causal design/.test(e.toLowerCase());
-    if(causal&&!design){addCheck('Causal boundary: FAIL','Causal wording is unsupported by the stated design.','bad');severe++;}else addCheck('Causal boundary: PASS','No unsupported causal conversion detected.','good');
+    const answerLower=a.toLowerCase(), evidenceLower=e.toLowerCase();
+    const causalTerm=/\b(cause|caused|causes|causal|because of|led to)\b/.test(answerLower);
+    const causalNegation=/\b(?:no|not|non[- ]?|cannot|can not|does not|did not|without)\b.{0,28}\bcaus(?:e|ed|es|al|ation)?\b|\bcaus(?:e|ed|es|al|ation)?\b.{0,28}\b(?:not established|not inferred|cannot be inferred|cannot be established|unsupported)\b/.test(answerLower);
+    const affirmativeCausal=/\b(?:cause|caused|causes|because of|led to)\b/.test(answerLower)&&!causalNegation;
+    const design=/random|experiment|instrument|difference-in-differences|regression discontinuity|causal design/.test(evidenceLower);
+    if(affirmativeCausal&&!design){addCheck('Causal boundary: FAIL','Affirmative causal wording is unsupported by the stated design.','bad');severe++;}
+    else if(causalTerm&&causalNegation){addCheck('Causal boundary: PASS','Causal language is explicitly negated or bounded; A1 does not convert the negation into a causal claim.','good');}
+    else addCheck('Causal boundary: PASS','No unsupported affirmative causal conversion detected.','good');
     const certainty=/\b(definitely|certainly|proves?|guarantees?|always|never)\b/.test(a.toLowerCase()); const uncertainty=/uncertain|confidence|interval|subject to|approximately|estimate|limitation|may|might/.test(a.toLowerCase()+' '+e.toLowerCase());
     if(certainty&&!uncertainty){addCheck('Uncertainty discipline: WARNING','Strong certainty language appears without an uncertainty qualification.','warn');warnings++;}else addCheck('Uncertainty discipline: PASS','The response avoids or qualifies absolute certainty.','good');
     if(e.length<35){addCheck('Evidence sufficiency: WARNING','Assumptions, source and method are too thin for a supported conclusion.','warn');warnings++;}else addCheck('Evidence record: PRESENT','A method or assumption record was supplied; A1 does not independently certify its truth.','good');
