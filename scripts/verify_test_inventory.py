@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the reconciled 24+8 test classification against discovery."""
+"""Verify the reconciled 24+8+14+6 test classification against discovery."""
 from __future__ import annotations
 
 import json
@@ -25,17 +25,21 @@ def main() -> int:
     discovered = set(flatten(unittest.defaultTestLoader.discover(str(ROOT / "tests"), top_level_dir=str(ROOT / "tests"))))
     formal = set(inventory["formal_h01_h06_unit_tests"])
     supplemental = set(inventory["supplemental_integration_artifact_replay_checks"])
+    hardening = set(inventory["external_challenge_hardening_tests"])
+    publication = set(inventory["publication_reconciliation_tests"])
     failures = []
-    if formal & supplemental:
+    groups = (formal, supplemental, hardening, publication)
+    if any(groups[i] & groups[j] for i in range(len(groups)) for j in range(i + 1, len(groups))):
         failures.append("classification overlap")
-    if formal | supplemental != discovered:
-        failures.append(f"inventory/discovery mismatch; missing={sorted(discovered-(formal|supplemental))}; stale={sorted((formal|supplemental)-discovered)}")
-    if len(formal) != 24 or len(supplemental) != 8 or len(discovered) != 32:
-        failures.append(f"count mismatch: formal={len(formal)}, supplemental={len(supplemental)}, discovered={len(discovered)}")
+    inventoried = formal | supplemental | hardening | publication
+    if inventoried != discovered:
+        failures.append(f"inventory/discovery mismatch; missing={sorted(discovered-inventoried)}; stale={sorted(inventoried-discovered)}")
+    if len(formal) != 24 or len(supplemental) != 8 or len(hardening) != 14 or len(publication) != 6 or len(discovered) != 52:
+        failures.append(f"count mismatch: formal={len(formal)}, supplemental={len(supplemental)}, hardening={len(hardening)}, publication={len(publication)}, discovered={len(discovered)}")
     if failures:
         print("FAIL: " + "; ".join(failures))
         return 1
-    print("PASS: 24 formal H01-H06 unit tests + 8 supplemental integration/artifact/replay checks = 32 discovered test methods")
+    print("PASS: 24 formal + 8 supplemental + 14 external-challenge hardening + 6 publication-reconciliation = 52 discovered test methods")
     return 0
 
 

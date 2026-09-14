@@ -32,6 +32,7 @@ def main() -> int:
         ("test_inventory_reconciliation", [sys.executable, "scripts/verify_test_inventory.py"]),
         ("formal_and_supplemental_tests", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"]),
         ("hardened_clean_replay", [sys.executable, "scripts/clean_replay.py", "--log", "results/HARDENED_CLEAN_REPLAY.log"]),
+        ("external_challenge_hardening", [sys.executable, "scripts/run_v1_2_hardening.py"]),
         ("security_scan", [sys.executable, "scripts/security_scan.py"]),
     ]
     records = []
@@ -45,13 +46,14 @@ def main() -> int:
         if code:
             failed.append(label)
     status = "PASS" if not failed else "FAIL"
-    header = f"A1 H01-H06 AMENDMENT GATE\ntimestamp_utc={timestamp}\npython={sys.version.split()[0]}\nrun0_status=EXTERNAL / NOT SUPPLIED\nrun0_rescoring=BLOCKED\nstatus={status}\n"
+    header = f"A1 V1.2.1 PUBLICATION GATE\ntimestamp_utc={timestamp}\npython={sys.version.split()[0]}\nrun0_status=EXTERNAL / NOT SUPPLIED\nrun0_rescoring=BLOCKED\nstatus={status}\n"
     (RESULTS / "H01_H06_EXECUTION_LOG.txt").write_text(header + "\n".join(records), encoding="utf-8", newline="\n")
+    discovered_count = test_record.count(" ... ok")
     (RESULTS / "H01_H06_TEST_REPORT.txt").write_text(
-        f"A1 H01-H06 REGRESSION TEST REPORT\ntimestamp_utc={timestamp}\nformal_h01_h06_unit_tests=24\nsupplemental_integration_artifact_replay_checks=8\ntotal_discovered_test_methods=32\nstatus={'PASS' if 'formal_and_supplemental_tests' not in failed else 'FAIL'}\n\n{test_record}",
+        f"A1 V1.2.1 REGRESSION TEST REPORT\ntimestamp_utc={timestamp}\noriginal_test_methods=32\nexternal_challenge_hardening_tests=14\npublication_reconciliation_tests=6\ntotal_discovered_test_methods={discovered_count}\nstatus={'PASS' if 'formal_and_supplemental_tests' not in failed else 'FAIL'}\n\n{test_record}",
         encoding="utf-8", newline="\n",
     )
-    print(f"{status}: H01-H06 amendment gate; logs written under results/")
+    print(f"{status}: A1 V1.2.1 publication gate; logs written under results/")
     if failed:
         print("failed=" + ",".join(failed))
     return 0 if not failed else 1
