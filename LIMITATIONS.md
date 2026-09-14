@@ -1,5 +1,13 @@
 # Mandatory limitations
 
+- A1 V1.2.1 retains V1.2's selection audit, which establishes internal consistency of the declared definitive Run 1 universe; it cannot prove that unrecorded attempts never existed.
+- Run 0 and earlier pilot/corrective activity are disclosed, but their complete artifact universe is unavailable in the public package.
+- No execution attrition is observed among the 24 definitive attempts; this must not be shortened to “no survivor bias.”
+- The observable reasoning-evidence audit covers stored prompts, outputs, references, results and adjudication. It does not access or reconstruct hidden chain-of-thought.
+- Run 1 did not systematically capture every discarded alternative.
+- The 168-record structured semantic-review queue remains unscored; attributed narrative adjudication is not a substitute for a completed structured review.
+- Nick Hart's and Fábio Borges's comments are external challenge inputs, not independent validation or endorsement.
+
 - A1 contains 24 selected cases and 12 designed matched contrasts; it is not a representative population sample.
 - The matched pairs are heterogeneous and are not established as iid or exchangeable draws.
 - Results come from one model alias and one run.
@@ -9,7 +17,7 @@
 - Context isolation is procedurally evidenced, not cryptographically proven; hidden platform context cannot be ruled out.
 - Exact future model generations are not reproducible. Stored artifacts, hashes, prompts, responses, processor code, policies, and replay outputs are reproducible.
 - The frozen parser had 0/20 coverage on the prose-formatted applicable responses; this is not evidence of mathematical failure.
-- The 19/20 result is an independent manual/analytical recomputation, not frozen deterministic scorer output.
+- The 19/20 result is an attributed manual/analytical recomputation, not frozen deterministic scorer output or independently validated population performance.
 - The semantic review and hostile review are AI-assisted. They are not blinded human expert review, external institutional validation, or validated psychometric measurement.
 - Semantic dimensions are operational categories, not validated psychometric constructs.
 - The exact timestamp and separate trace for an independently attributable Abacus freeze-verification event are not recoverable. The freeze artifact's own filesystem timestamps do predate Run 1.
@@ -17,3 +25,9 @@
 - Prior work already covers statistical LLM evaluation, causal/data reasoning evaluation, and evaluation beyond final-answer accuracy. A1 claims only its particular compact matched-case and governance workflow.
 - There is no evidence of production, enterprise, or client deployment performance.
 - No stable ranking, leaderboard superiority, general competence estimate, or universal failure-rate claim is supported.
+- The later Gemini blind report contains its own Q195 arithmetic error, incorrectly labels Q795 and misses Q361's supplemental error; it is retained as challenge evidence, not statistical certification.
+- The later Abacus technical report reproduced the candidate but did not expose the underlying model identity; it cannot substantiate a verified Kimi K3 backend claim.
+- Claude reported executing and hash-verifying the final candidate, but no separate Claude execution transcript was supplied. Those statements are reviewer-reported; the repository's clean extracted-package replay remains controlling.
+- Claude's subjective 98% confidence is not adopted as a project metric, and its statement that scope misinterpretation is impossible is expressly rejected.
+- The printed self-hashes in both later reviewer reports do not match the files received. Actual received-file hashes are preserved separately; end-to-end reviewer-side freeze integrity is not established.
+- Model-assisted reviewer convergence is not equivalent to evidential independence, human expertise, institutional validation or certification.

@@ -1,57 +1,25 @@
 {
-  "broken_internal_markdown_links": 0,
-  "cache_or_temporary_artifacts": 0,
-  "functional_checks": [
-    {
-      "name": "test_inventory",
-      "output": "PASS: 24 formal H01-H06 unit tests + 8 supplemental integration/artifact/replay checks = 32 discovered test methods",
-      "status": "PASS"
-    },
-    {
-      "name": "unit_tests",
-      "output": "................................\n----------------------------------------------------------------------\nRan 32 tests in 12.244s\n\nOK",
-      "status": "PASS"
-    },
-    {
-      "byte_identical_rows": true,
-      "byte_identical_summary": true,
-      "name": "run1_frozen_processor_replay",
-      "status": "PASS"
-    },
-    {
-      "name": "embedded_manifest",
-      "output": "PASS: frozen bundle and publication manifests verify",
-      "status": "PASS"
-    },
-    {
-      "name": "embedded_test_inventory",
-      "output": "PASS: 24 formal H01-H06 unit tests + 8 supplemental integration/artifact/replay checks = 32 discovered test methods",
-      "status": "PASS"
-    },
-    {
-      "name": "embedded_unit_tests",
-      "output": "................................\n----------------------------------------------------------------------\nRan 32 tests in 11.679s\n\nOK",
-      "status": "PASS"
-    }
-  ],
-  "license_unchanged": true,
-  "required_github_documents_present": true,
-  "rules": [
-    "local Windows user paths",
-    "local POSIX user paths",
-    "local container paths",
-    "local workspace paths",
-    "known local username",
-    "private keys",
-    "bearer tokens",
-    "API-key patterns",
-    "credential assignments",
-    "email addresses",
-    "environment files",
-    "compiled caches",
-    "hidden OS metadata"
-  ],
-  "scope": "entire derivative, including recursively inspected ZIP members; review PDF previously inspected visually and by text extraction",
+  "release": "A1 V1.2.1 Final",
+  "status": "PASS",
+  "scope": "Current text source tree and new V1.2 artifacts; inherited embedded V1.1 archives are unchanged from their prior publication scan.",
   "sensitive_findings": 0,
-  "status": "PASS"
+  "broken_internal_markdown_links": 0,
+  "compiled_caches_in_release": 0,
+  "required_github_documents_present": true,
+  "license_unchanged": true,
+  "functional_checks": [
+    {"name": "frozen_baseline", "status": "PASS"},
+    {"name": "test_inventory", "status": "PASS", "output": "24 formal + 8 supplemental + 14 external-challenge hardening + 6 publication-reconciliation = 52"},
+    {"name": "unit_tests", "status": "PASS", "output": "52 tests"},
+    {"name": "external_challenge_hardening", "status": "CONDITIONAL_PASS", "output": "0 critical failures; 5 disclosed residual flags"},
+    {"name": "security_scan", "status": "PASS"},
+    {"name": "publication_manifest", "status": "PASS_AFTER_FINAL_BUILD"}
+  ],
+  "rules": [
+    "local user and workspace paths",
+    "private keys and tokens",
+    "credential assignments",
+    "compiled caches and temporary artifacts",
+    "unqualified validation, population and deployment claims"
+  ]
 }

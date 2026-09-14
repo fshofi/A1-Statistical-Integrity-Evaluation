@@ -1,5 +1,52 @@
 # Publication change control
 
+## A1 V1.2.1 controlled reconciliation release
+
+V1.2.1 preserves V1.2 unchanged and adds separated reviewer evidence, actual received-file hashes, controlled reconciliation and tightened public wording. It does not alter a benchmark case, prompt, raw response, reference answer, score, adjudication or hardening control.
+
+Added:
+
+- `reviews/gemini_lane_a/` raw blind-review evidence and received-file hash;
+- `reviews/abacus_lane_b/` raw technical-review evidence, declaration and received-file hashes;
+- `evidence/CROSS_MODEL_REVIEW_RECONCILIATION_V1_2_1.md`;
+- `evidence/CLAIM_LEDGER_V1_2_1.csv`; and
+- `PUBLICATION_FREEZE_V1_2_1.json`.
+
+Revised only for claim precision and release identification:
+
+- `README.md`, `RESULTS.md`, `LIMITATIONS.md`, `AI_ASSISTANCE_DISCLOSURE.md`;
+- `REPRODUCIBILITY.md`, `CHANGELOG.md`, `evidence/EVIDENCE_CHAIN.md`;
+- `evidence/PORTFOLIO_AND_RECRUITER_COPY.md`; and
+- publication-gate version labels.
+
+V1.2.1 is model-assisted and architect-reconciled. It is not independent human validation or institutional certification.
+
+Six publication-reconciliation controls were added without changing the benchmark corpus, raw responses, reference answers, derived scoring evidence or final adjudication. The V1.2.1 total is 52: the preserved 46 benchmark/hardening tests plus six claim-and-receipt controls.
+
+The Final freeze additionally preserves Claude's raw final-GO report and a separate reconciliation. It accepts the bounded disposition while declining five overstatements. This evidence-only addition does not change the test count or underlying benchmark evidence.
+
+## A1 V1.2 external-challenge release
+
+The frozen Amendment 1.1 baseline, prompts, responses, references, deterministic outputs and final adjudication remain unchanged. V1.2 adds a separate control layer and does not retroactively alter Run 1.
+
+Added:
+
+- `src/hardening.py`
+- `scripts/run_v1_2_hardening.py`
+- selection-design and observable-reasoning records and schemas
+- machine-readable hardening results under `runs/run1/hardening_v1_2/`
+- 14 external-challenge tests, bringing the reconciled total to 46
+- external-challenge report, Codex adversarial review and V1.2 claim ledger
+- `PUBLICATION_FREEZE_V1_2.json`
+
+Revised only to describe or execute the new control layer:
+
+- `README.md`, `RESULTS.md`, `LIMITATIONS.md`, `REPRODUCIBILITY.md`, `CHANGELOG.md`
+- `evidence/EVIDENCE_CHAIN.md`
+- test inventory, publication gate and package manifest tooling
+
+The V1.2 review is architect-requested and AI-assisted. It is not independent validation.
+
 Source package: `A1_Publication_Freeze_Package.zip`  
 Source SHA-256: `ddd2f5dfab0f9ccbede0ff4493184fb590a6b122ae9579314a3091491def6c2e`
 
