@@ -13,8 +13,10 @@
     .status{display:inline-block;margin-top:18px;padding:8px 13px;border:1px solid #6aa2bc;border-radius:99px;background:#17364f;font-weight:700}
     main{padding:38px 22px 70px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-64px 0 34px}.card,.panel{background:white;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 25px rgba(13,28,49,.06)}.card{padding:22px}.card b{display:block;font-size:1.65rem;color:var(--ink)}.card span{font-size:.83rem;color:var(--muted)}
     .panel{padding:27px;margin:18px 0}.boundary{border-left:5px solid var(--gold);background:var(--warn)}.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}ul{padding-left:21px}.small{font-size:.88rem;color:var(--muted)}code{overflow-wrap:anywhere}.verdict{color:#197044;font-weight:800}.no{color:#983c35;font-weight:800}
+    .try{border-top:5px solid var(--blue)}.try-head{display:flex;justify-content:space-between;gap:20px;align-items:start}.privacy{font-size:.78rem;background:#e7f5ef;color:#176244;padding:6px 10px;border-radius:99px;white-space:nowrap;font-weight:700}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.field{display:flex;flex-direction:column;gap:6px}.wide{grid-column:1/-1}label{font-weight:750;color:var(--ink);font-size:.9rem}input,textarea,select{width:100%;border:1px solid #bac9d3;border-radius:8px;padding:11px 12px;background:#fbfdfe;color:#162734;font:inherit}textarea{min-height:92px;resize:vertical}input:focus,textarea:focus,select:focus{outline:3px solid #bfe3f1;border-color:var(--blue)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:8px;padding:11px 17px;font-weight:800;cursor:pointer}.primary{background:var(--ink);color:white}.secondary{background:#e7eef3;color:var(--ink)}.btn:hover{filter:brightness(1.08)}
+    .report{display:none;margin-top:22px;border-top:1px solid var(--line);padding-top:20px}.report.show{display:block}.report-top{display:flex;gap:16px;align-items:center;justify-content:space-between}.decision{font-size:1.15rem;font-weight:850;padding:8px 12px;border-radius:7px}.pass{background:#def3e8;color:#176244}.conditional{background:#fff0c9;color:#76500d}.repair{background:#fde3df;color:#8a3029}.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.check{border:1px solid var(--line);border-radius:8px;padding:12px;background:#f8fafb}.check b{display:block;color:var(--ink);margin-bottom:3px}.check span{font-size:.87rem;color:var(--muted)}.notice{margin-top:14px;background:#edf4f7;border-left:4px solid var(--blue);padding:12px 14px;font-size:.88rem}.samples{margin-top:8px}.samples button{font-size:.8rem}
     footer{border-top:1px solid var(--line);padding:25px 22px;color:var(--muted);font-size:.84rem}
-    @media(max-width:760px){.grid,.cols{grid-template-columns:1fr 1fr}header{padding-top:48px}.grid{margin-top:-46px}}@media(max-width:480px){.grid,.cols{grid-template-columns:1fr}.grid{margin-top:-36px}}
+    @media(max-width:760px){.grid,.cols,.form-grid,.checks{grid-template-columns:1fr}.wide{grid-column:auto}.try-head,.report-top{display:block}.privacy{display:inline-block;margin-top:8px}header{padding-top:48px}.grid{margin-top:-46px}}@media(max-width:480px){.grid,.cols{grid-template-columns:1fr}.grid{margin-top:-36px}}
   </style>
 </head>
 <body>
@@ -27,11 +29,64 @@
     <div class="card"><b>5</b><span>Formal residual flags retained</span></div>
   </section>
   <section class="panel boundary"><h2>Authority boundary</h2><p><span class="verdict">Authorised:</span> bounded portfolio and research demonstration. <span class="no">Not authorised:</span> population-performance inference, operational deployment, independent-human-validation or institutional-certification claims.</p></section>
+  <section class="panel try" id="try-a1">
+    <div class="try-head"><div><div class="eyebrow" style="color:var(--blue)">Interactive demonstration</div><h2>Try the A1 evidence gate</h2><p>Enter a proposed statistical answer. A1 will challenge its numeric agreement, evidence, uncertainty, causal language and intended use.</p></div><span class="privacy">Runs locally · no submission</span></div>
+    <div class="samples actions"><button class="btn secondary" type="button" id="sample-risk">Load risk sample</button><button class="btn secondary" type="button" id="sample-causal">Load causal sample</button><button class="btn secondary" type="button" id="sample-good">Load qualified sample</button></div>
+    <form id="a1-form" novalidate>
+      <div class="form-grid">
+        <div class="field wide"><label for="question">Statistical question</label><textarea id="question" required placeholder="What claim is being evaluated?"></textarea></div>
+        <div class="field wide"><label for="answer">Proposed answer or model response</label><textarea id="answer" required placeholder="Paste the conclusion, calculation and uncertainty statement."></textarea></div>
+        <div class="field"><label for="reported">Reported numeric value (optional)</label><input id="reported" inputmode="decimal" placeholder="e.g. 0.095238095"></div>
+        <div class="field"><label for="reference">Reference value (optional)</label><input id="reference" inputmode="decimal" placeholder="e.g. 0.005509641873"></div>
+        <div class="field wide"><label for="evidence">Evidence, assumptions and method</label><textarea id="evidence" placeholder="Sample, design, assumptions, source, uncertainty and method."></textarea></div>
+        <div class="field"><label for="action">Intended use</label><select id="action"><option value="explore">Exploratory analysis</option><option value="publish">Publication claim</option><option value="decide">Operational decision</option></select></div>
+        <div class="field"><label for="tolerance">Numeric tolerance</label><select id="tolerance"><option value="0.01">1% relative</option><option value="0.001">0.1% relative</option><option value="0.05">5% relative</option></select></div>
+      </div>
+      <div class="actions"><button class="btn primary" type="submit">Evaluate response</button><button class="btn secondary" type="reset">Clear</button></div>
+    </form>
+    <div class="report" id="report" aria-live="polite">
+      <div class="report-top"><h2 style="margin:0">A1 evaluation report</h2><div class="decision" id="decision"></div></div>
+      <div class="checks" id="checks"></div>
+      <div class="notice" id="boundary-note"></div>
+    </div>
+  </section>
   <section class="panel"><h2>What the evidence shows</h2><div class="cols"><div><ul><li>All 24 definitive responses and provenance records are preserved.</li><li>Q195 remains a material evaluated-model failure: <code>0.095238095</code> reported versus <code>0.005509641873</code> correct.</li><li>Q361 preserves a supplemental-calculation defect despite correct requested outputs.</li><li>The deterministic parser’s 0/20 evaluated coverage is not reported as 0% model accuracy.</li></ul></div><div><ul><li>46 benchmark and hostile-hardening tests passed.</li><li>Six additional publication-reconciliation controls passed.</li><li>Security and privacy scans passed.</li><li>Gemini, Abacus and Claude reviewer disagreements and errors remain visible.</li></ul></div></div></section>
   <section class="panel"><h2>Final challenge record</h2><p>Claude returned a bounded <strong>CONDITIONAL GO</strong> with no blocking finding. Controlled reconciliation accepted that disposition while correcting five overstatements in the reviewer report. Agreement across model reviewers is treated as corroboration, not statistical independence or human validation.</p></section>
   <section class="panel"><h2>Limitations that remain</h2><div class="cols"><ul><li>No representative population sampling frame.</li><li>Earlier development-attempt universe incomplete.</li><li>Discarded alternatives not systematically captured.</li><li>168 semantic-review records remain unscored.</li></ul><ul><li>No independent human validation.</li><li>Model alias not pinned to a recoverable backend build.</li><li>Context isolation procedural, not cryptographic.</li><li>Reviewer self-hash mismatches disclosed.</li></ul></div></section>
   <p class="small">A1 V1.2.1 is an AI-assisted portfolio artifact. It is not a production certification, general benchmark, safety case or evidence of client deployment performance.</p>
 </div></main>
 <footer><div class="wrap">A1 V1.2.1 · Statistical integrity · Evidence before authority</div></footer>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const form = $('a1-form'), report = $('report'), checks = $('checks');
+  const set = (q,a,r,ref,e,use='explore') => { $('question').value=q; $('answer').value=a; $('reported').value=r; $('reference').value=ref; $('evidence').value=e; $('action').value=use; report.classList.remove('show'); };
+  $('sample-risk').addEventListener('click',()=>set('Is the posterior event probability below 1%?','No. The probability is 0.095238095, so it is above 1%.','0.095238095','0.005509641873','Bayes calculation from the stated prior and likelihoods.','publish'));
+  $('sample-causal').addEventListener('click',()=>set('Did the campaign cause the observed increase?','Yes. The campaign definitely caused the increase because the treated group performed better.','','','Observational comparison of two groups; allocation and confounding were not assessed.','decide'));
+  $('sample-good').addEventListener('click',()=>set('Is the estimated rate approximately 12%?','The sample estimate is 0.121. It is consistent with approximately 12%, subject to sampling uncertainty; this does not establish a population rate.','0.121','0.12','Random sample of 800 observations; binomial estimate with uncertainty and no causal claim.','explore'));
+  function addCheck(title,detail,kind){ const el=document.createElement('div'); el.className='check'; const b=document.createElement('b'); b.textContent=title; const s=document.createElement('span'); s.textContent=detail; if(kind==='bad') b.style.color='#9a352d'; if(kind==='warn') b.style.color='#8a5b08'; if(kind==='good') b.style.color='#176244'; el.append(b,s); checks.appendChild(el); }
+  form.addEventListener('reset',()=>{setTimeout(()=>report.classList.remove('show'),0)});
+  form.addEventListener('submit',ev=>{
+    ev.preventDefault(); checks.replaceChildren();
+    const q=$('question').value.trim(), a=$('answer').value.trim(), e=$('evidence').value.trim();
+    if(!q||!a){ addCheck('Input incomplete','Provide both a question and proposed answer.','bad'); show('REPAIR REQUIRED','repair','A1 cannot evaluate an absent claim.'); return; }
+    let severe=0, warnings=0;
+    const rv=Number($('reported').value), ref=Number($('reference').value), hasR=$('reported').value.trim()!==''&&Number.isFinite(rv), hasRef=$('reference').value.trim()!==''&&Number.isFinite(ref);
+    if(hasR&&hasRef){ const scale=Math.max(Math.abs(ref),1e-12), err=Math.abs(rv-ref)/scale, tol=Number($('tolerance').value); if(err<=tol){addCheck('Numeric agreement: PASS',`Relative error ${(err*100).toFixed(3)}% is within the ${(tol*100)}% tolerance.`,'good')}else{addCheck('Numeric agreement: FAIL',`Reported ${rv} differs from reference ${ref}; relative error ${(err*100).toFixed(2)}%.`,'bad');severe++;}}
+    else {addCheck('Numeric agreement: NOT TESTED','Provide both reported and reference values for a deterministic numeric comparison.','warn');warnings++;}
+    const all=(q+' '+a+' '+e).toLowerCase();
+    const causal=/\b(cause|caused|causes|causal|because of|led to)\b/.test(a.toLowerCase()); const design=/random|experiment|instrument|difference-in-differences|regression discontinuity|causal design/.test(e.toLowerCase());
+    if(causal&&!design){addCheck('Causal boundary: FAIL','Causal wording is unsupported by the stated design.','bad');severe++;}else addCheck('Causal boundary: PASS','No unsupported causal conversion detected.','good');
+    const certainty=/\b(definitely|certainly|proves?|guarantees?|always|never)\b/.test(a.toLowerCase()); const uncertainty=/uncertain|confidence|interval|subject to|approximately|estimate|limitation|may|might/.test(a.toLowerCase()+' '+e.toLowerCase());
+    if(certainty&&!uncertainty){addCheck('Uncertainty discipline: WARNING','Strong certainty language appears without an uncertainty qualification.','warn');warnings++;}else addCheck('Uncertainty discipline: PASS','The response avoids or qualifies absolute certainty.','good');
+    if(e.length<35){addCheck('Evidence sufficiency: WARNING','Assumptions, source and method are too thin for a supported conclusion.','warn');warnings++;}else addCheck('Evidence record: PRESENT','A method or assumption record was supplied; A1 does not independently certify its truth.','good');
+    const leak=/future|after the outcome|post[- ]?event|duration|leak/.test(all); if(leak){addCheck('Temporal leakage: REVIEW','Possible future or post-event information requires admissibility review.','warn');warnings++;}else addCheck('Temporal leakage: NO SIGNAL','No obvious future-information term was detected; absence of a keyword is not proof.','good');
+    const operational=$('action').value==='decide'; if(operational){addCheck('Authority to act: NOT AUTHORISED','This browser demonstration cannot authorise an operational decision.','bad');severe++;}else addCheck('Authority to act: SEPARATE','Analysis completion does not itself authorise action.','good');
+    const status=severe?'REPAIR REQUIRED':warnings?'CONDITIONAL PASS':'PASS WITH QUALIFICATION'; const cls=severe?'repair':warnings?'conditional':'pass';
+    show(status,cls,severe?'One or more findings prevent an unqualified conclusion or action.':'This is a bounded screening result, not independent statistical validation.');
+  });
+  function show(status,cls,note){ $('decision').textContent=status; $('decision').className='decision '+cls; $('boundary-note').textContent=note+' Inputs remain in this browser and are not stored or transmitted.'; report.classList.add('show'); report.scrollIntoView({behavior:'smooth',block:'start'}); }
+})();
+</script>
 </body>
 </html>
