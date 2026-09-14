@@ -1,5 +1,7 @@
 # A1 Statistical-Integrity Benchmark
 
+![A1 Statistical-Integrity Evaluation for LLMs - CVDNA Atlas II technical plate](assets/plates/a1-cvdna-atlas-cover.png)
+
 ## Publication status
 
 **A1 V1.2.1 FINAL — PUBLISHED WITH QUALIFICATION** for bounded portfolio/research use after controlled cross-model reconciliation and a final Claude model-assisted challenge. V1.2, the V1.2.1 release candidate, and the frozen Amendment 1.1 baseline remain preserved.
