@@ -1,0 +1,32 @@
+{
+  "schema_version": "A1-OBSERVABLE-REASONING-RECORD-1.2",
+  "scope": "OBSERVABLE_EVIDENCE_RECORD_ONLY",
+  "hidden_chain_of_thought_claimed": false,
+  "evidence_artifacts": [
+    "data/cases.jsonl",
+    "runs/run1/raw_model_responses.jsonl",
+    "runs/run1/definitive_task_provenance.json",
+    "runs/run1/run_manifest.json",
+    "baseline/a1_revision_bundle/revision/checker_answers_rev2.jsonl",
+    "runs/run1/derived/derived_parsing_and_scores.jsonl",
+    "evidence/FINAL_ADJUDICATION.md"
+  ],
+  "evidence_artifact_sha256": {
+    "data/cases.jsonl": "79b4feb88561c0d3d46ba0f8f660f21bb997383652ea99a70651bfda6907a2ca",
+    "runs/run1/raw_model_responses.jsonl": "4fce942cc7cda81e7f8832e951ca9d4fe382a39dfdd91ee3246713e032f3fec3",
+    "runs/run1/definitive_task_provenance.json": "843cbb3f2f8e9dbfa94477582a652d4bf30d056fa82e231530b6ec73a4125909",
+    "runs/run1/run_manifest.json": "18def5e82bc7ec71f0f896ad0bb5527f8389fff57c588576fe3ed40378e4ca00",
+    "baseline/a1_revision_bundle/revision/checker_answers_rev2.jsonl": "fa5af07dde36625f21b64a776f4e11b78eb7f19859105adff6d2a2875ad921f7",
+    "runs/run1/derived/derived_parsing_and_scores.jsonl": "a7861eb4642a96ec76e4711b8e0f29c63b9eb42b84a2f18c5dffb13f1949bc4e",
+    "evidence/FINAL_ADJUDICATION.md": "c2e2c507cb8df7bac71bda24207008e743f94b90fe5ded0f0aa6c0b2661d1fec"
+  },
+  "assumptions_review_status": "ATTRIBUTED_NARRATIVE_REVIEW_PRESENT",
+  "method_review_status": "ATTRIBUTED_NARRATIVE_REVIEW_PRESENT",
+  "uncertainty_review_status": "ATTRIBUTED_NARRATIVE_REVIEW_PRESENT",
+  "discarded_alternatives_capture": "NOT_SYSTEMATICALLY_CAPTURED_IN_RUN1",
+  "conclusion_review_status": "ATTRIBUTED_NARRATIVE_REVIEW_PRESENT",
+  "authority_boundary": "EVALUATION_ONLY_NO_EXECUTION_AUTHORITY",
+  "structured_semantic_review_status": "QUEUE_PRESENT_BUT_UNSCORED",
+  "reviewer_independence_status": "AI_ASSISTED_AND_ARCHITECT_LED_NOT_INDEPENDENT_HUMAN_REVIEW",
+  "note": "The record links inspectable artifacts. It does not infer or demand hidden chain-of-thought."
+}

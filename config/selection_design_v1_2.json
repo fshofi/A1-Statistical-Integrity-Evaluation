@@ -1,0 +1,11 @@
+{
+  "schema_version": "A1-SELECTION-DESIGN-1.2",
+  "selection_method": "PURPOSIVE_DESIGNED_CONTRASTS",
+  "target_population": null,
+  "selection_timing": "Case set and Rev-2 references frozen before the definitive Run 1 collection.",
+  "outcome_based_exclusions": 0,
+  "prior_development_activity_register_status": "UNAVAILABLE_IN_FULL",
+  "prior_development_activity_note": "Run 0 and earlier pilot/corrective activity are disclosed, but the complete universe of those artifacts is not present in this public package. They are not part of the definitive Run 1 denominator.",
+  "admissible_claim": "Descriptive selected-case performance for the frozen definitive Run 1 only.",
+  "inadmissible_claim": "Representative, population, universal, leaderboard, or independent-validation performance."
+}

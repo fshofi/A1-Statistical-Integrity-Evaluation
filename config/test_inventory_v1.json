@@ -36,7 +36,33 @@
     "test_reproducibility.ReproducibilityTests.test_hardened_clean_replay",
     "test_scoring.SummaryTests.test_not_applicable_is_excluded_not_passed"
   ],
+  "external_challenge_hardening_tests": [
+    "test_external_challenge_hardening.ObservableReasoningTests.test_hidden_chain_claim_fails_closed",
+    "test_external_challenge_hardening.ObservableReasoningTests.test_missing_authority_boundary_fails_closed",
+    "test_external_challenge_hardening.ObservableReasoningTests.test_missing_required_field_is_rejected",
+    "test_external_challenge_hardening.ObservableReasoningTests.test_reference_record_is_conditional",
+    "test_external_challenge_hardening.ObservableReasoningTests.test_refusal_and_truncation_are_not_classified_as_completed",
+    "test_external_challenge_hardening.ObservableReasoningTests.test_tampered_evidence_fails_closed",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_cherry_picked_exclusion_fails_closed",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_declared_complete_probability_sample_still_needs_separate_inference",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_missing_failed_case_fails_closed",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_reference_run_is_conditional_not_population_pass",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_selected_attempt_must_bind_response_hash",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_tampered_response_fails_closed",
+    "test_external_challenge_hardening.SurvivorSelectionTests.test_unpreserved_retry_fails_closed",
+    "test_reproducibility.ReproducibilityTests.test_external_challenge_hardening_replays"
+  ],
+  "publication_reconciliation_tests": [
+    "test_v1_2_1_publication_claims.PublicationReconciliationTests.test_claim_ledger_contains_review_prohibitions",
+    "test_v1_2_1_publication_claims.PublicationReconciliationTests.test_core_benchmark_evidence_is_unchanged",
+    "test_v1_2_1_publication_claims.PublicationReconciliationTests.test_public_claim_surfaces_avoid_elevated_review_wording",
+    "test_v1_2_1_publication_claims.PublicationReconciliationTests.test_raw_reviewer_receipt_hashes_match",
+    "test_v1_2_1_publication_claims.PublicationReconciliationTests.test_reconciliation_disposition_is_bounded",
+    "test_v1_2_1_publication_claims.PublicationReconciliationTests.test_release_freeze_blocks_elevated_claims"
+  ],
   "formal_test_count": 24,
   "supplemental_check_count": 8,
-  "total_discovered_test_methods": 32
+  "external_challenge_hardening_test_count": 14,
+  "publication_reconciliation_test_count": 6,
+  "total_discovered_test_methods": 52
 }
