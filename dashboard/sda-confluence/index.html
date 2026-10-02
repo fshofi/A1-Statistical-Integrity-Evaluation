@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CVDNA SDA A1–A3 Data Confluence D3 v1.0</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root{
+  --bg:#f7faf9; --panel:#ffffff; --text:#10211a; --muted:#647067; --border:#d9e2dc;
+  --green:#22c55e; --teal:#14b8a6; --blue:#0ea5e9; --violet:#8b5cf6; --amber:#f59e0b; --red:#ef4444;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#fbfdfc,#eef5f1);color:var(--text)}
+.wrap{max-width:1180px;margin:0 auto;padding:22px}
+.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:28px;line-height:1.12;margin:6px 0 6px}
+.sub{color:var(--muted);max-width:820px;font-size:14px}
+.controls{display:flex;gap:8px;flex-wrap:wrap}
+button{border:1px solid var(--border);background:#fff;color:var(--text);padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+button.primary{background:#e6f7ef;border-color:#b9e8ce}
+button:hover{transform:translateY(-1px)}
+.card{margin-top:16px;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:12px;box-shadow:0 10px 30px rgba(0,0,0,.04)}
+svg{display:block;width:100%;height:auto}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.metric{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px}
+.metric small{display:block;color:var(--muted);margin-bottom:4px}
+.metric strong{font-size:18px}
+.status{margin-top:10px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px;font-size:14px}
+.footer{margin-top:10px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}h1{font-size:22px}.wrap{padding:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="kicker">CVDNA Scientific Decision Assurance</div>
+      <h1>From Raw Evidence to Governed Synthesis</h1>
+      <div class="sub">Five evidence streams converge into a live assurance brew, qualify, then reorganise into A1–A3 before reaching the authority boundary.</div>
+    </div>
+    <div class="controls">
+      <button id="brew" class="primary">Brew synthesis</button>
+      <button id="contradict">Inject contradiction</button>
+      <button id="replay">Replay</button>
+      <button id="reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <svg id="viz" viewBox="0 0 1000 650" role="img" aria-label="Dynamic CVDNA Scientific Decision Assurance confluence engine"></svg>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><small>Incoming evidence</small><strong id="ev">0</strong></div>
+    <div class="metric"><small>Qualified signals</small><strong id="qu">0</strong></div>
+    <div class="metric"><small>Contradictions</small><strong id="co">0</strong></div>
+    <div class="metric"><small>Disposition</small><strong id="st">READY</strong></div>
+  </div>
+
+  <div id="msg" class="status">Ready. Press Brew synthesis.</div>
+  <div class="footer">Conceptual D3.js visualisation. Strongest positive state: ELIGIBLE FOR AUTHORISED CONSIDERATION. No autonomous EXECUTE.</div>
+</div>
+
+<script>
+const svg=d3.select('#viz');
+const ev=document.getElementById('ev'), qu=document.getElementById('qu'), co=document.getElementById('co'), st=document.getElementById('st'), msg=document.getElementById('msg');
+let particles=[],timers=[],sim=null,run=0,contradictions=0;
+
+const sources=[
+  {label:'DATA',y:120,c:'#22c55e'},
+  {label:'PROVENANCE',y:220,c:'#14b8a6'},
+  {label:'ASSUMPTIONS',y:320,c:'#0ea5e9'},
+  {label:'METHOD',y:420,c:'#8b5cf6'},
+  {label:'EXTERNAL EVIDENCE',y:520,c:'#f59e0b'}
+];
+const targets=[
+  {id:'A1',x:700,y:150,c:'#22c55e',lines:['STATISTICAL','INTEGRITY']},
+  {id:'A2',x:825,y:295,c:'#14b8a6',lines:['EVIDENCE-GOVERNED','ANALYSIS']},
+  {id:'A3',x:700,y:440,c:'#0ea5e9',lines:['PROVENANCE-AWARE','RAG']}
+];
+
+function clearAll(){timers.forEach(clearTimeout);timers=[];if(sim){sim.stop();sim=null}}
+function later(fn,ms,id){timers.push(setTimeout(()=>{if(id===run)fn()},ms))}
+function status(text,state){msg.textContent=text;if(state)st.textContent=state}
+
+function build(){
+  clearAll(); run++; contradictions=0; svg.selectAll('*').remove();
+  ev.textContent='0'; qu.textContent='0'; co.textContent='0'; st.textContent='READY';
+
+  const defs=svg.append('defs');
+  const grad=defs.append('linearGradient').attr('id','liquid').attr('x1','0%').attr('y1','100%').attr('x2','100%').attr('y2','0%');
+  grad.append('stop').attr('offset','0%').attr('stop-color','#22c55e');
+  grad.append('stop').attr('offset','50%').attr('stop-color','#14b8a6');
+  grad.append('stop').attr('offset','100%').attr('stop-color','#0ea5e9');
+
+  const glow=defs.append('filter').attr('id','glow').attr('x','-40%').attr('y','-40%').attr('width','180%').attr('height','180%');
+  glow.append('feGaussianBlur').attr('stdDeviation',4).attr('result','g');
+  const m=glow.append('feMerge'); m.append('feMergeNode').attr('in','g'); m.append('feMergeNode').attr('in','SourceGraphic');
+
+  svg.append('text').attr('x',500).attr('y',28).attr('text-anchor','middle').attr('font-size',12).attr('font-weight',700).attr('letter-spacing',1.8).attr('fill','currentColor')
+     .text('SOURCE → CONFLUENCE → QUALIFICATION → SYNTHESIS → AUTHORITY');
+
+  const sourceG=svg.append('g');
+  sources.forEach((s,i)=>{
+    sourceG.append('rect').attr('x',20).attr('y',s.y-22).attr('width',115).attr('height',44).attr('rx',11).attr('fill','rgba(255,255,255,.65)').attr('stroke',s.c).attr('stroke-width',2.1);
+    sourceG.append('text').attr('x',77).attr('y',s.y+3).attr('text-anchor','middle').attr('font-size',9).attr('font-weight',700).attr('fill','#10211a').text(s.label);
+    sourceG.append('path').attr('class','feed').attr('d',`M135 ${s.y} C210 ${s.y},245 ${285+i*18},320 ${335+i*12}`)
+      .attr('fill','none').attr('stroke',s.c).attr('stroke-width',2.8).attr('stroke-opacity','.3');
+  });
+
+  const flask=svg.append('g');
+  flask.append('path').attr('d','M335 165 L380 165 L380 235 C380 265 345 300 325 345 C300 405 305 490 355 515 C395 535 465 535 505 515 C555 490 560 405 535 345 C515 300 480 265 480 235 L480 165 L525 165')
+    .attr('fill','rgba(255,255,255,.05)').attr('stroke','#3f4d46').attr('stroke-opacity','.75').attr('stroke-width',5.5).attr('stroke-linecap','round');
+  flask.append('path').attr('d','M320 426 C360 392 395 458 430 430 C465 398 505 464 542 422 L548 475 C530 510 485 525 430 525 C375 525 330 510 312 475 Z')
+    .attr('fill','url(#liquid)').attr('opacity','.86').attr('filter','url(#glow)');
+  flask.append('path').attr('id','swirl').attr('d','M335 478 C365 438 485 505 515 435 C530 390 420 410 395 355 C370 305 445 288 430 220')
+    .attr('fill','none').attr('stroke','#14b8a6').attr('stroke-width',7).attr('stroke-opacity','.72').attr('stroke-dasharray','12 9');
+
+  const synth=svg.append('g');
+  targets.forEach(t=>{
+    const g=synth.append('g').attr('class','stage').attr('opacity',0);
+    g.append('circle').attr('cx',t.x).attr('cy',t.y).attr('r',48).attr('fill','rgba(255,255,255,.5)').attr('stroke',t.c).attr('stroke-width',3.5);
+    g.append('text').attr('x',t.x).attr('y',t.y-5).attr('text-anchor','middle').attr('font-size',23).attr('font-weight',800).attr('fill','#10211a').text(t.id);
+    t.lines.forEach((line,j)=>g.append('text').attr('x',t.x).attr('y',t.y+17+j*12).attr('text-anchor','middle').attr('font-size',8.5).attr('font-weight',650).attr('fill','#536159').text(line));
+  });
+
+  const network=synth.append('g').attr('id','net').attr('opacity',0);
+  network.append('path').attr('d','M742 150 Q805 210 825 247').attr('fill','none').attr('stroke','#14b8a6').attr('stroke-width',2.5);
+  network.append('path').attr('d','M825 343 Q805 395 742 440').attr('fill','none').attr('stroke','#0ea5e9').attr('stroke-width',2.5);
+  network.append('path').attr('d','M700 198 Q640 295 700 392').attr('fill','none').attr('stroke','#22c55e').attr('stroke-width',2).attr('stroke-dasharray','7 7');
+
+  const gate=synth.append('g').attr('id','gate').attr('opacity',0);
+  gate.append('rect').attr('x',800).attr('y',505).attr('width',175).attr('height',82).attr('rx',15).attr('fill','rgba(255,255,255,.8)').attr('stroke','#22c55e').attr('stroke-width',3.5);
+  gate.append('text').attr('x',887).attr('y',533).attr('text-anchor','middle').attr('font-size',11).attr('font-weight',800).attr('fill','#10211a').text('AUTHORITY GATE');
+  gate.append('text').attr('x',887).attr('y',554).attr('text-anchor','middle').attr('font-size',9).attr('font-weight',650).attr('fill','#10211a').text('ELIGIBLE FOR AUTHORISED');
+  gate.append('text').attr('x',887).attr('y',570).attr('text-anchor','middle').attr('font-size',9).attr('font-weight',650).attr('fill','#10211a').text('CONSIDERATION');
+
+  const stop=svg.append('g').attr('id','stop').attr('opacity',0);
+  stop.append('rect').attr('x',620).attr('y',525).attr('width',135).attr('height',58).attr('rx',13).attr('fill','rgba(255,255,255,.9)').attr('stroke','#ef4444').attr('stroke-width',3.5);
+  stop.append('text').attr('x',687).attr('y',550).attr('text-anchor','middle').attr('font-size',15).attr('font-weight',800).attr('fill','#10211a').text('SAFE STOP');
+  stop.append('text').attr('x',687).attr('y',568).attr('text-anchor','middle').attr('font-size',8.5).attr('fill','#536159').text('contradiction unresolved');
+
+  particles=[];
+  sources.forEach((s,si)=>{
+    for(let i=0;i<25;i++) particles.push({id:`${si}-${i}`,group:si%3,x:130+Math.random()*45,y:s.y+(Math.random()-.5)*24,r:2+Math.random()*3.3,c:s.c,qualified:false});
+  });
+
+  svg.append('g').attr('id','p').selectAll('circle').data(particles).enter().append('circle')
+    .attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',d=>d.r).attr('fill',d=>d.c).attr('opacity','.9');
+
+  status('Ready. Press Brew synthesis.','READY');
+}
+
+function brew(){
+  build(); const id=run; const p=svg.select('#p').selectAll('circle'); document.getElementById('brew').disabled=true; ev.textContent=particles.length;
+  status('1/6 — Five evidence streams enter the confluence vessel.','INGESTING');
+  svg.selectAll('.feed').transition().duration(900).attr('stroke-opacity','.95').attr('stroke-width',4);
+  p.transition().duration(1250).attr('cx',d=>310+Math.random()*170).attr('cy',d=>325+Math.random()*165).attr('r',d=>d.r*1.15);
+
+  later(()=>{
+    status('2/6 — The brew thickens: evidence sources collide and interact without automatically acquiring standing.','BREWING');
+    p.transition().duration(1400).attr('cx',d=>335+Math.random()*185).attr('cy',d=>355+Math.random()*145).attr('opacity','.97');
+    svg.select('#swirl').transition().duration(2200).attrTween('stroke-dashoffset',()=>d3.interpolateString('0','-150'));
+  },1350,id);
+
+  later(()=>{
+    status('3/6 — Qualification separates evidential signal from material that cannot yet support a decision.','QUALIFYING');
+    particles.forEach((d,i)=>d.qualified=i%5!==0); qu.textContent=particles.filter(d=>d.qualified).length;
+    p.transition().duration(1450).attr('cx',d=>d.qualified?520+(Math.random()-.5)*95:385+(Math.random()-.5)*75).attr('cy',d=>d.qualified?180+Math.random()*230:440+Math.random()*65).attr('opacity',d=>d.qualified?.96:.2);
+  },2950,id);
+
+  later(()=>{
+    status('4/6 — Qualified evidence self-organises into A1, A2 and A3 assurance domains.','SYNTHESISING');
+    svg.selectAll('.stage').transition().duration(800).attr('opacity',1);
+    const q=particles.filter(d=>d.qualified);
+    q.forEach(d=>{const t=targets[d.group]; d.tx=t.x+(Math.random()-.5)*74; d.ty=t.y+(Math.random()-.5)*74;});
+    sim=d3.forceSimulation(q)
+      .force('x',d3.forceX(d=>d.tx).strength(.15))
+      .force('y',d3.forceY(d=>d.ty).strength(.15))
+      .force('collide',d3.forceCollide(d=>d.r+1.5))
+      .alpha(1).alphaDecay(.027)
+      .on('tick',()=>p.filter(d=>d.qualified).attr('cx',d=>d.x).attr('cy',d=>d.y));
+  },4550,id);
+
+  later(()=>{
+    status('5/6 — A1 statistical integrity, A2 governed analysis and A3 provenance-aware evaluation cross-check one another.','CROSS-CHECKING');
+    svg.select('#net').transition().duration(850).attr('opacity',1);
+  },6250,id);
+
+  later(()=>{
+    status('6/6 — The qualified synthesis reaches the authority boundary. It does not autonomously execute.','ELIGIBLE');
+    svg.select('#gate').transition().duration(900).attr('opacity',1);
+    p.transition().duration(800).attr('opacity',d=>d.qualified?.32:.06);
+    document.getElementById('brew').disabled=false;
+  },7800,id);
+}
+
+function contradiction(){
+  contradictions++; co.textContent=contradictions;
+  status('Contradiction detected. Standing contracts and the path diverts to SAFE STOP.','SAFE STOP');
+  svg.select('#gate').transition().duration(300).attr('opacity','.1');
+  svg.select('#stop').transition().duration(450).attr('opacity',1);
+  const p=svg.select('#p').selectAll('circle');
+  p.filter((d,i)=>d.qualified&&i%6===0).transition().duration(650).attr('fill','#ef4444').attr('cx',d=>640+Math.random()*90).attr('cy',d=>465+Math.random()*45).attr('opacity','.95');
+}
+
+document.getElementById('brew').addEventListener('click',brew);
+document.getElementById('contradict').addEventListener('click',contradiction);
+document.getElementById('replay').addEventListener('click',brew);
+document.getElementById('reset').addEventListener('click',build);
+
+build();
+</script>
+</body>
+</html>
