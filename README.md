@@ -1,3 +1,13 @@
+# Statistical Answer Review — CVDNA A1
+
+Find numerical errors, unsupported inferences and missing assumptions before an AI-generated analysis reaches a client.
+
+**Commercial use:** a bounded review led by Shofi Ahmed Uddin, supported by reproducible software. [Pilot scope](SERVICE_OFFER.md) · [Interactive demonstration](dashboard/index.html) · [Current verification](dashboard/verification.md).
+
+Reference calculations and semantic judgments are reported separately. The frozen benchmark remains unchanged; reviewer receipt recovery is still pending.
+
+---
+
 # A1 Statistical-Integrity Benchmark
 
 ![A1 Statistical-Integrity Evaluation for LLMs - CVDNA Atlas II technical plate](assets/plates/a1-cvdna-atlas-cover.png)
