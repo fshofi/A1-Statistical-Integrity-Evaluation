@@ -1,0 +1,83 @@
+$ python -m unittest discover -s tests -v
+test_policy_covers_all_cases_and_40_requested_values (test_amendment_h01_h06.H01RequestedVsSupplementalTests.test_policy_covers_all_cases_and_40_requested_values) ... ok
+test_q731_requested_fields_only_passes (test_amendment_h01_h06.H01RequestedVsSupplementalTests.test_q731_requested_fields_only_passes) ... ok
+test_exact_value_accepted (test_amendment_h01_h06.H02ToleranceTests.test_exact_value_accepted) ... ok
+test_materially_incorrect_nearby_value_rejected (test_amendment_h01_h06.H02ToleranceTests.test_materially_incorrect_nearby_value_rejected) ... ok
+test_valid_six_decimal_rounding_accepted (test_amendment_h01_h06.H02ToleranceTests.test_valid_six_decimal_rounding_accepted) ... ok
+test_canonical_unit (test_amendment_h01_h06.H03ParsingAndUnitTests.test_canonical_unit) ... ok
+test_duplicate_json_key_rejected (test_amendment_h01_h06.H03ParsingAndUnitTests.test_duplicate_json_key_rejected) ... ok
+test_duplicate_json_like_key_rejected (test_amendment_h01_h06.H03ParsingAndUnitTests.test_duplicate_json_like_key_rejected) ... ok
+test_equivalent_unit (test_amendment_h01_h06.H03ParsingAndUnitTests.test_equivalent_unit) ... ok
+test_incompatible_unit (test_amendment_h01_h06.H03ParsingAndUnitTests.test_incompatible_unit) ... ok
+test_malformed_separate_from_math_failure (test_amendment_h01_h06.H03ParsingAndUnitTests.test_malformed_separate_from_math_failure) ... ok
+test_original_submitted_unit_is_preserved (test_amendment_h01_h06.H03ParsingAndUnitTests.test_original_submitted_unit_is_preserved) ... ok
+test_plain_text_number (test_amendment_h01_h06.H03ParsingAndUnitTests.test_plain_text_number) ... ok
+test_valid_json (test_amendment_h01_h06.H03ParsingAndUnitTests.test_valid_json) ... ok
+test_valid_json_like (test_amendment_h01_h06.H03ParsingAndUnitTests.test_valid_json_like) ... ok
+test_empty_nonnumeric_cases_fail_completeness_not_math (test_amendment_h01_h06.H04ApplicabilityTests.test_empty_nonnumeric_cases_fail_completeness_not_math) ... ok
+test_missing_field_rejected (test_amendment_h01_h06.H05ManifestTests.test_missing_field_rejected) ... ok
+test_null_unexposed_setting_rejected (test_amendment_h01_h06.H05ManifestTests.test_null_unexposed_setting_rejected) ... ok
+test_required_provenance_or_unavailable_marker_validates (test_amendment_h01_h06.H05ManifestTests.test_required_provenance_or_unavailable_marker_validates) ... ok
+test_vague_unavailable_setting_rejected (test_amendment_h01_h06.H05ManifestTests.test_vague_unavailable_setting_rejected) ... ok
+test_bound_review_validates (test_amendment_h01_h06.H06SemanticReviewTests.test_bound_review_validates) ... ok
+test_rationale_and_rubric_required (test_amendment_h01_h06.H06SemanticReviewTests.test_rationale_and_rubric_required) ... ok
+test_response_hash_required (test_amendment_h01_h06.H06SemanticReviewTests.test_response_hash_required) ... ok
+test_reviewer_provenance_required (test_amendment_h01_h06.H06SemanticReviewTests.test_reviewer_provenance_required) ... ok
+test_no_preexisting_output_and_real_checker_writes (test_amendment_h01_h06.ReplayHardeningTests.test_no_preexisting_output_and_real_checker_writes) ... ok
+test_successful_no_write_checker_fails (test_amendment_h01_h06.ReplayHardeningTests.test_successful_no_write_checker_fails) ... ok
+test_counts_and_ids (test_cases.CaseTests.test_counts_and_ids) ... ok
+test_public_case_copy_is_exact (test_cases.CaseTests.test_public_case_copy_is_exact) ... ok
+test_frozen_manifest_and_baseline (test_checker.CheckerTests.test_frozen_manifest_and_baseline) ... ok
+test_hidden_chain_claim_fails_closed (test_external_challenge_hardening.ObservableReasoningTests.test_hidden_chain_claim_fails_closed) ... ok
+test_missing_authority_boundary_fails_closed (test_external_challenge_hardening.ObservableReasoningTests.test_missing_authority_boundary_fails_closed) ... ok
+test_missing_required_field_is_rejected (test_external_challenge_hardening.ObservableReasoningTests.test_missing_required_field_is_rejected) ... ok
+test_reference_record_is_conditional (test_external_challenge_hardening.ObservableReasoningTests.test_reference_record_is_conditional) ... ok
+test_refusal_and_truncation_are_not_classified_as_completed (test_external_challenge_hardening.ObservableReasoningTests.test_refusal_and_truncation_are_not_classified_as_completed) ... ok
+test_tampered_evidence_fails_closed (test_external_challenge_hardening.ObservableReasoningTests.test_tampered_evidence_fails_closed) ... ok
+test_cherry_picked_exclusion_fails_closed (test_external_challenge_hardening.SurvivorSelectionTests.test_cherry_picked_exclusion_fails_closed) ... ok
+test_declared_complete_probability_sample_still_needs_separate_inference (test_external_challenge_hardening.SurvivorSelectionTests.test_declared_complete_probability_sample_still_needs_separate_inference) ... ok
+test_missing_failed_case_fails_closed (test_external_challenge_hardening.SurvivorSelectionTests.test_missing_failed_case_fails_closed) ... ok
+test_reference_run_is_conditional_not_population_pass (test_external_challenge_hardening.SurvivorSelectionTests.test_reference_run_is_conditional_not_population_pass) ... ok
+test_selected_attempt_must_bind_response_hash (test_external_challenge_hardening.SurvivorSelectionTests.test_selected_attempt_must_bind_response_hash) ... ok
+test_tampered_response_fails_closed (test_external_challenge_hardening.SurvivorSelectionTests.test_tampered_response_fails_closed) ... ok
+test_unpreserved_retry_fails_closed (test_external_challenge_hardening.SurvivorSelectionTests.test_unpreserved_retry_fails_closed) ... ok
+test_evidence_presence_is_not_presented_as_sufficiency (test_fabio_interface_regression.FabioInterfaceRegressionTests.test_evidence_presence_is_not_presented_as_sufficiency) ... ok
+test_explicit_non_causal_guard_is_present (test_fabio_interface_regression.FabioInterfaceRegressionTests.test_explicit_non_causal_guard_is_present) ... ok
+test_temporal_leakage_respects_explicit_exclusion (test_fabio_interface_regression.FabioInterfaceRegressionTests.test_temporal_leakage_respects_explicit_exclusion) ... ok
+test_does_not_extract_unlabelled_numbers (test_labelled_parsing.LabelledParsingTests.test_does_not_extract_unlabelled_numbers) ... ok
+test_does_not_take_fraction_operand (test_labelled_parsing.LabelledParsingTests.test_does_not_take_fraction_operand) ... ok
+test_duplicate_labels_abstain (test_labelled_parsing.LabelledParsingTests.test_duplicate_labels_abstain) ... ok
+test_markdown_label (test_labelled_parsing.LabelledParsingTests.test_markdown_label) ... ok
+test_wrong_value_preserved (test_labelled_parsing.LabelledParsingTests.test_wrong_value_preserved) ... ok
+test_amended_pipeline_and_denominators (test_model_run.ModelRunTests.test_amended_pipeline_and_denominators) ... ok
+test_external_challenge_hardening_replays (test_reproducibility.ReproducibilityTests.test_external_challenge_hardening_replays) ... ok
+test_hardened_clean_replay (test_reproducibility.ReproducibilityTests.test_hardened_clean_replay) ... ok
+test_not_applicable_is_excluded_not_passed (test_scoring.SummaryTests.test_not_applicable_is_excluded_not_passed) ... ok
+test_claim_ledger_contains_review_prohibitions (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_claim_ledger_contains_review_prohibitions) ... ok
+test_core_benchmark_evidence_is_unchanged (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_core_benchmark_evidence_is_unchanged) ... ok
+test_public_claim_surfaces_avoid_elevated_review_wording (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_public_claim_surfaces_avoid_elevated_review_wording) ... ok
+test_raw_reviewer_receipt_hashes_match (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_raw_reviewer_receipt_hashes_match) ... ERROR
+test_reconciliation_disposition_is_bounded (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_reconciliation_disposition_is_bounded) ... ok
+test_release_freeze_blocks_elevated_claims (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_release_freeze_blocks_elevated_claims) ... ok
+
+======================================================================
+ERROR: test_raw_reviewer_receipt_hashes_match (test_v1_2_1_publication_claims.PublicationReconciliationTests.test_raw_reviewer_receipt_hashes_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/tests/test_v1_2_1_publication_claims.py", line 30, in test_raw_reviewer_receipt_hashes_match
+    self.assertEqual(sha256(ROOT / relative), digest, relative)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<checkout>/tests/test_v1_2_1_publication_claims.py", line 15, in sha256
+    with path.open("rb") as handle:
+         ^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<checkout>/reviews/gemini_lane_a/Gemini_2.5_Pro_Lane_A_RAW.pdf'
+
+----------------------------------------------------------------------
+Ran 60 tests in 0.250s
+
+FAILED (errors=1)
+
+Exit: 1
